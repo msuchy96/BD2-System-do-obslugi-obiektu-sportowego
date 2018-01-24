@@ -32,7 +32,7 @@
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="data" id="0D5F3877-7A8A-5DC3-14B4-E5CA63616270">
+<Column name="data_imprezy" id="0D5F3877-7A8A-5DC3-14B4-E5CA63616270">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>E443C025-0126-85B1-8DDE-20888B3723E7</generatorID>
@@ -58,7 +58,7 @@
 <colAssociation fkAssociation="163DF477-4876-39D0-0C5E-6EB93B17A223" referredColumn="4C1A5DC8-4FA1-79BA-E8F6-128188C7150C"/>
 </associations>
 </Column>
-<Column name="id_typu" id="14A758B3-2B49-6115-57C4-7930AE53A002">
+<Column name="id_typu_imprezy" id="14A758B3-2B49-6115-57C4-7930AE53A002">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>61509081-DF7E-AD78-925B-655B5FA95ADD</generatorID>

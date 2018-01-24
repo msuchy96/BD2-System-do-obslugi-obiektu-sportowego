@@ -43,7 +43,7 @@
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="data" id="E443C025-0126-85B1-8DDE-20888B3723E7">
+<Attribute name="data_imprezy" id="E443C025-0126-85B1-8DDE-20888B3723E7">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-21 19:21:20 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>

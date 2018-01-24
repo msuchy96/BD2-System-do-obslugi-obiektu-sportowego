@@ -29,7 +29,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="data" id="4AD9BFA1-BF08-28C8-EE9C-395FDEA00757">
+<Attribute name="data_zakupu" id="4AD9BFA1-BF08-28C8-EE9C-395FDEA00757">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:40:03 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
