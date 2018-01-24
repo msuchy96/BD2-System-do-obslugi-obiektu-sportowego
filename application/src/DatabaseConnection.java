@@ -37,8 +37,7 @@ public class DatabaseConnection {
             scanner = new Scanner(new File("passwd"));
             usrname = scanner.nextLine();
             passwd = scanner.nextLine();
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             usrname = null;
             passwd = null;
             e.printStackTrace();
@@ -56,8 +55,7 @@ public class DatabaseConnection {
                 return null;
 
             }
-        }
-        else {
+        } else {
             System.out.println("Incorrect credentials.");
         }
 
