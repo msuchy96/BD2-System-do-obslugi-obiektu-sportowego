@@ -3,22 +3,17 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 
-public class LoginWindow {
-    private String username;
-    private String password;
-
-    public Pair<String, String> setStage(){
+public class ReservationWindow {
+    public void setWindow() {
         Stage stage = new Stage();
-        stage.setTitle("Database Login");
+        stage.setTitle("Reservation");
         stage.setResizable(false);
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -29,46 +24,50 @@ public class LoginWindow {
         Scene scene = new Scene(grid, 640, 480);
         stage.setScene(scene);
 
-        Label userName = new Label("User Name:");
-        grid.add(userName, 0, 1);
+        Label name = new Label("Name:");
+        grid.add(name, 0, 1);
 
-        TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
+        TextField nameField = new TextField();
+        grid.add(nameField, 1, 1);
 
-        Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
+        Label lastName = new Label("Last Name:");
+        grid.add(lastName, 0, 2);
 
-        PasswordField pwBox = new PasswordField();
-        grid.add(pwBox, 1, 2);
+        TextField lastNameField = new TextField();
+        grid.add(lastNameField, 1, 2);
 
-        Button btn = new Button("Sign in");
+        Label pesel = new Label("Pesel:");
+        grid.add(pesel, 0, 3);
+
+        TextField peselField = new TextField();
+        grid.add(peselField, 1, 3);
+
+        Button btn = new Button("Confirm Reservation");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
+        grid.add(hbBtn, 1, 10);
 
         btn.setOnAction(e -> {
-            username = userTextField.getText();
-            password = pwBox.getText();
-            stage.close();
+            if(nameField.getText().trim().isEmpty() || lastNameField.getText().trim().isEmpty()
+                    || peselField.getText().trim().isEmpty()){
+
+            }
+            else
+                stage.close();
         });
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, t -> {
             if(t.getCode()== KeyCode.ESCAPE)
             {
                 stage.close();
-                username = null;
-                password = null;
             }
         });
 
         stage.setOnCloseRequest(we -> {
             stage.close();
-            username = null;
-            password = null;
         });
 
         stage.showAndWait();
-        return new Pair<>(username, password);
     }
 }

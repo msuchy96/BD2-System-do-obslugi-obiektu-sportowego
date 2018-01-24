@@ -29,15 +29,22 @@ public class Main extends Application {
 //            System.exit(-1);
 //        }
 //        System.out.println("Connection successful");
-//        while(true){
+        while(true){
             MainWindow mainWindow = new MainWindow();
             String activityName = mainWindow.setWindow();
             switch(activityName){
+                case "Reservation":
+                    ReservationWindow reservationWindow = new ReservationWindow();
+                    reservationWindow.setWindow();
+                    break;
+                case "Payment":
+                    break;
+                case "Test":
+                    break;
                 case "Exit":
                     System.out.println("Application will now close");
                     System.exit(0);
             }
-//        }
-//        primaryStage.show();
+        }
     }
 }
