@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 
 public class Test {
-    public static float populate(Connection connection) {
+    public static long populate(Connection connection) {
         CallableStatement callableStatement;
         try {
             callableStatement = connection.prepareCall("BEGIN POPULATE(?); END;");
@@ -25,7 +25,7 @@ public class Test {
         return -1;
     }
 
-    public static float delete(Connection connection) {
+    public static long delete(Connection connection) {
         CallableStatement callableStatement;
         try {
             callableStatement = connection.prepareCall("BEGIN DELETE_FROM_TABLES(?); END;");
