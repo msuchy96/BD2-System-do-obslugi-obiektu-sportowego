@@ -32,17 +32,6 @@
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="rabat" id="0B0FD8B0-D5C7-3258-0206-ABF5AD377E71">
-<createdBy>koraxiss</createdBy>
-<createdTime>2017-12-22 11:59:33 UTC</createdTime>
-<generatorID>D96195FF-C7CD-53E8-FE68-EBB77D4319B8</generatorID>
-<ownerDesignName>models</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="opis" id="E9D6A397-C6D5-82B1-C251-680DD4970C65">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>

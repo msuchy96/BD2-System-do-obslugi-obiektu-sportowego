@@ -42,6 +42,20 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="cena" id="CA333AB2-0546-7588-763B-5A7D38B38D3F">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-25 15:05:14 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<engineerTo>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
+</Attribute>
 <Attribute name="id_klienta" id="2442CF12-9E6E-CB33-4B60-1D794AD57171">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 23:06:14 UTC</createdTime>
