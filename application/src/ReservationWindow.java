@@ -10,20 +10,22 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
 
 public class ReservationWindow {
+    private int mode;
     private int cId;
     private int eId;
     private int sId;
     private int nOfTickets;
 
-    public void setWindow(Connection connection) {
+    public void setWindow(Connection connection, int mode) {
+        this.mode = mode;
         Stage stage = new Stage();
-        stage.setTitle("Reservation");
+        if(mode == 1)
+            stage.setTitle("Reservation");
+        else if(mode == 2)
+            stage.setTitle("Purchase");
         stage.setResizable(false);
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -83,6 +85,8 @@ public class ReservationWindow {
         });
 
         Button btn = new Button("Confirm Reservation");
+        if(mode == 2)
+            btn.setText("Confirm Purchase");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
@@ -96,14 +100,37 @@ public class ReservationWindow {
                 sId = Integer.parseInt(sectorIdField.getText());
                 nOfTickets = Integer.parseInt(numberOfTicketsField.getText());
                 int result = this.createReservation(connection);
-                if(result == -1)
-                    System.out.println("Not enough empty places in this sector.");
-                else if(result == -2)
-                    System.out.println("This client already has reservation for this event.");
-                else if(result == -3)
-                    System.out.println("Failed to execute database function call.");
-                else
-                    System.out.println("Reservation id: " + result);
+                if(mode == 1) {
+                    if (result == -1)
+                        System.out.println("Not enough empty places in this sector.");
+                    else if (result == -2)
+                        System.out.println("This client has already reservation for this event.");
+                    else if (result == -3)
+                        System.out.println("This client has already bought ticket for this event");
+                    else if (result == -4)
+                        System.out.println("Too late to reserve ticket for this event.");
+                    else if (result == -5)
+                        System.out.println("Failed to execute reserve function in database.");
+                    else
+                        System.out.println("Reservation id: " + result);
+                }
+                else if(mode == 2){
+                    if (result == -1)
+                        System.out.println("Not enough empty places in this sector.");
+                    else if (result == -2)
+                        System.out.println("This client has already purchased for this event.");
+                    else if (result == -3)
+                        System.out.println("This client has already reserved ticket for this event");
+                    else if (result == -4)
+                        System.out.println("Too late to purchase ticket for this event.");
+                    else if (result == -5)
+                        System.out.println("Failed to execute purchase function in database.");
+                    else {
+                        double price = getPrice(connection, result);
+                        System.out.println("Purchase id: " + result);
+                        System.out.println("Price: " + price);
+                    }
+                }
                 stage.close();
             }
         });
@@ -119,10 +146,29 @@ public class ReservationWindow {
         stage.showAndWait();
     }
 
-    private int createReservation(Connection connection) {
-        CallableStatement callableStatement;
+    private double getPrice(Connection connection, int result) {
+        Statement statement = null;
+        ResultSet rs = null;
+        String query = "SELECT CENA FROM ZAKUPY WHERE ID_ZAKUPU = " + result;
+        double price = 0;
         try {
-            callableStatement = connection.prepareCall("{? = call rezerwuj(?, ?, ?, ?)}");
+            statement = connection.createStatement();
+            rs = statement.executeQuery(query);
+            rs.next();
+            price = rs.getDouble(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return price;
+    }
+
+    private int createReservation(Connection connection) {
+        CallableStatement callableStatement = null;
+        try {
+            if(mode == 1)
+                callableStatement = connection.prepareCall("{? = call rezerwuj(?, ?, ?, ?)}");
+            else if(mode == 2)
+                callableStatement = connection.prepareCall("{? = call zakup(?, ?, ?, ?)}");
             callableStatement.registerOutParameter(1, Types.NUMERIC);
             callableStatement.setInt(2, nOfTickets);
             callableStatement.setInt(3, cId);
@@ -139,6 +185,6 @@ public class ReservationWindow {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return -3;
+        return -5;
     }
 }

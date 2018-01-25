@@ -25,20 +25,28 @@ public class MainWindow {
         stage.setScene(scene);
 
         Button reservationButton = new Button("Reservation");
+        Button purchaseButton = new Button("Purchase");
         Button paymentButton = new Button("Payment");
         Button testButton = new Button("Test");
         reservationButton.setMinWidth(150);
+        purchaseButton.setMinWidth(150);
         paymentButton.setMinWidth(150);
         testButton.setMinWidth(150);
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.CENTER);
         hbBtn.getChildren().add(reservationButton);
+        hbBtn.getChildren().add(purchaseButton);
         hbBtn.getChildren().add(paymentButton);
         hbBtn.getChildren().add(testButton);
         grid.add(hbBtn, 1, 4);
 
         reservationButton.setOnAction(e -> {
             activityName = reservationButton.getText();
+            stage.close();
+        });
+
+        purchaseButton.setOnAction(e -> {
+            activityName = purchaseButton.getText();
             stage.close();
         });
 

@@ -35,7 +35,11 @@ public class Main extends Application {
             switch(activityName){
                 case "Reservation":
                     ReservationWindow reservationWindow = new ReservationWindow();
-                    reservationWindow.setWindow(connection);
+                    reservationWindow.setWindow(connection, 1);
+                    break;
+                case "Purchase":
+                    ReservationWindow buyWindow = new ReservationWindow();
+                    buyWindow.setWindow(connection, 2);
                     break;
                 case "Payment":
                     break;
@@ -43,6 +47,12 @@ public class Main extends Application {
                     break;
                 case "Exit":
                     System.out.println("Application will now close");
+                    if(connection != null)
+                        try {
+                            connection.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                     System.exit(0);
             }
         }
