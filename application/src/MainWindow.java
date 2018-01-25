@@ -20,7 +20,7 @@ public class MainWindow {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Scene scene = new Scene(grid, 640, 480);
+        Scene scene = new Scene(grid, 700, 480);
         stage.setResizable(false);
         stage.setScene(scene);
 

@@ -19,16 +19,16 @@ public class Main extends Application {
             System.out.println("Application will now close");
             System.exit(0);
         }
-        try {
-            connection = DatabaseConnection.connect(loginInfo.getKey(), loginInfo.getKey());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        if(connection == null){
-            System.out.println("Connection failed");
-            System.exit(-1);
-        }
-        System.out.println("Connection successful");
+//        try {
+//            connection = DatabaseConnection.connect(loginInfo.getKey(), loginInfo.getKey());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        if(connection == null){
+//            System.out.println("Connection failed");
+//            System.exit(-1);
+//        }
+//        System.out.println("Connection successful");
         while(true){
             MainWindow mainWindow = new MainWindow();
             String activityName = mainWindow.setWindow();
@@ -42,6 +42,8 @@ public class Main extends Application {
                     buyWindow.setWindow(connection, 2);
                     break;
                 case "Payment":
+                    PaymentWindow paymentWindow = new PaymentWindow();
+                    paymentWindow.setWindow(connection);
                     break;
                 case "Test":
                     break;
