@@ -13,13 +13,13 @@ public class Test {
             callableStatement = null;
             e.printStackTrace();
         }
-        try {
-            assert callableStatement != null;
-            callableStatement.execute();
-            return callableStatement.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            assert callableStatement != null;
+//            callableStatement.execute();
+//            return callableStatement.getInt(1);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
         return -1;
     }
 }

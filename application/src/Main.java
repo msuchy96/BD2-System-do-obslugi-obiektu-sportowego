@@ -19,23 +19,23 @@ public class Main extends Application {
             System.out.println("Application will now close");
             System.exit(0);
         }
-//        try {
-//            connection = DatabaseConnection.connect(loginInfo.getKey(), loginInfo.getKey());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        if(connection == null){
-//            System.out.println("Connection failed");
-//            System.exit(-1);
-//        }
-//        System.out.println("Connection successful");
+        try {
+            connection = DatabaseConnection.connect(loginInfo.getKey(), loginInfo.getKey());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(connection == null){
+            System.out.println("Connection failed");
+            System.exit(-1);
+        }
+        System.out.println("Connection successful");
         while(true){
             MainWindow mainWindow = new MainWindow();
             String activityName = mainWindow.setWindow();
             switch(activityName){
                 case "Reservation":
                     ReservationWindow reservationWindow = new ReservationWindow();
-                    reservationWindow.setWindow();
+                    reservationWindow.setWindow(connection);
                     break;
                 case "Payment":
                     break;
