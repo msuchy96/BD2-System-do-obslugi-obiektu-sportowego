@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_typu" id="7B2415B2-271D-538A-1050-A5690373D421">
+<Attribute name="id_typu_karnetu" id="7B2415B2-271D-538A-1050-A5690373D421">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 14:57:15 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
@@ -37,8 +37,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30 CHAR</dataTypeSize>
-<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="cena" id="5D9AE547-F452-3987-631E-7930BFB16FC7">
 <createdBy>koraxiss</createdBy>
@@ -50,7 +50,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
 </Attribute>
 <Attribute name="okres_waznosci" id="7F030149-46B4-6D3C-D541-F64070AAEC08">
 <createdBy>koraxiss</createdBy>
@@ -61,7 +63,7 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT014</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="opis" id="1567C279-02A4-3B95-5CE9-6030BCE9F20E">
@@ -78,7 +80,7 @@
 <dataTypeSize>150 CHAR</dataTypeSize>
 <ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_typu1" id="D63D47D4-86D4-1B3A-C422-C58C6CBC2F2C">
+<Attribute name="id_typu_sektora" id="D63D47D4-86D4-1B3A-C422-C58C6CBC2F2C">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 14:59:46 UTC</createdTime>
 <generatorID>4D54C357-B54E-6492-495F-E7D73423EA6A</generatorID>
@@ -92,7 +94,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_typu2" id="EBD380E6-2AF7-C152-4F66-66EDBCA82358">
+<Attribute name="id_typu_imprezy" id="EBD380E6-2AF7-C152-4F66-66EDBCA82358">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:00:43 UTC</createdTime>
 <generatorID>91511614-B233-5A3F-1DEE-DD3E69C60BA8</generatorID>

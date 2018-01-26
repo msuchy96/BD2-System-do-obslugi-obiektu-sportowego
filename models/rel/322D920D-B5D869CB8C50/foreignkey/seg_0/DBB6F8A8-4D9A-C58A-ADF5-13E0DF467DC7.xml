@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DBB6F8A8-4D9A-C58A-ADF5-13E0DF467DC7" containerWithKeyObject="AD4EA4AF-9082-332D-FBBD-27324C0F3296" localFKIndex="21DED144-2576-1E4E-989F-3FCF3F025BD4" name="PROMOCJA_TYPY_KLIENTOW_FK">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>4C762102-4E03-25C3-0505-78E45DBF2C8B</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<referredTableLongName>TYPY_KLIENTOW</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>11D7768C-D39D-F3D8-964C-52D3051EECD9</referredTableID>
+<keyObject>622F9DEC-3726-9F8F-C02B-DB15FD5CD8E2</keyObject>
+<referredKeyID>622F9DEC-3726-9F8F-C02B-DB15FD5CD8E2</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>id_typu_klienta</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

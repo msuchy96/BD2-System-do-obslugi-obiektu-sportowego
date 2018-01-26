@@ -10,7 +10,7 @@
 <keyObject>622F9DEC-3726-9F8F-C02B-DB15FD5CD8E2</keyObject>
 <referredKeyID>622F9DEC-3726-9F8F-C02B-DB15FD5CD8E2</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>id_typu</refColNames>
+<refColNames>id_typu_klienta</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

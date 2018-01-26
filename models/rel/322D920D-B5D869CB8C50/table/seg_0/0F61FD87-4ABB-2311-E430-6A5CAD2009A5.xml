@@ -20,7 +20,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="id_typu" id="F8E29CD3-168B-8365-1925-2C42962A11AA">
+<Column name="id_typu_sektora" id="F8E29CD3-168B-8365-1925-2C42962A11AA">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>DF33DA37-C668-65E0-D0F0-6BF8AC2E47F2</generatorID>

@@ -20,7 +20,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="data" id="EA6422E2-35E9-9B1A-8040-3D4C3DA5E2D3">
+<Column name="data_zakupu" id="EA6422E2-35E9-9B1A-8040-3D4C3DA5E2D3">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>4AD9BFA1-BF08-28C8-EE9C-395FDEA00757</generatorID>
@@ -29,6 +29,18 @@
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cena" id="AAEFD872-AE50-18C7-65CA-D3BDE41C7B03">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-25 15:06:50 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="id_klienta" id="51F60340-2806-35A3-4A8A-49666E0974EB">
@@ -44,6 +56,21 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="F7C95CCD-03EC-3E7E-8B73-67F05224E848" referredColumn="675EE78A-338A-D1DF-72BB-3F606A38BD1A"/>
+</associations>
+</Column>
+<Column name="id_promocji" id="0281F70E-B286-5A8E-5A72-E8C5E81C7B8C">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 12:17:30 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3D87209E-2724-A488-0928-0CD706484006" referredColumn="F3D36CEF-BD95-AE09-D938-06C09C16EBE7"/>
 </associations>
 </Column>
 </columns>
@@ -69,6 +96,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="51F60340-2806-35A3-4A8A-49666E0974EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DAE3EA19-3F07-D2C0-76EB-10B9F0EF7CBE" name="ZAKUPY_PROMOCJA_FK">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>C049C660-5C67-3A58-7246-111974B5214F</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0281F70E-B286-5A8E-5A72-E8C5E81C7B8C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

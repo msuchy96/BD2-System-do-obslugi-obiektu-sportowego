@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_typu" id="D74CB0B8-DC0E-A7E1-8428-360966232AA6">
+<Attribute name="id_typu_klienta" id="D74CB0B8-DC0E-A7E1-8428-360966232AA6">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:45:44 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
@@ -42,19 +42,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="rabat" id="D96195FF-C7CD-53E8-FE68-EBB77D4319B8">
-<createdBy>zamoj</createdBy>
-<createdTime>2017-12-21 21:46:19 UTC</createdTime>
-<ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
-<engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="opis" id="F6BCDBEB-8F73-CFF8-A41C-2E9B5B47DF35">
 <createdBy>zamoj</createdBy>

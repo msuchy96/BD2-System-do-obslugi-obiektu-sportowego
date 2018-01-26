@@ -5,7 +5,7 @@
 <generatorID>0B653744-FD89-0B38-FB03-342FF7058AD9</generatorID>
 <ownerDesignName>models</ownerDesignName>
 <referredTableLongName>KLIENCI</referredTableLongName>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>5E377223-A509-5A9C-08A9-445092A6151E</referredTableID>
 <keyObject>2A6DF1D2-18E3-6CDA-D158-EF4CD1F53AB7</keyObject>
 <referredKeyID>2A6DF1D2-18E3-6CDA-D158-EF4CD1F53AB7</referredKeyID>

@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BD8F6CF0-402D-2D77-6C16-254438C9AF75" containerWithKeyObject="B08CF356-0268-5C31-C70E-6FC255A77923" localFKIndex="5A21D566-EEA0-ED89-A4F3-FB0E7EA969F3" name="TYP_KARNETU_TYPY_IMPREZ_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BD8F6CF0-402D-2D77-6C16-254438C9AF75" containerWithKeyObject="B08CF356-0268-5C31-C70E-6FC255A77923" localFKIndex="5A21D566-EEA0-ED89-A4F3-FB0E7EA969F3" name="TYPY_KARNETOW_TYPY_IMPREZ_FK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>91511614-B233-5A3F-1DEE-DD3E69C60BA8</generatorID>
 <ownerDesignName>models</ownerDesignName>
 <referredTableLongName>TYPY_IMPREZ</referredTableLongName>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>18F7BD7C-86F4-6A12-CA01-46E4B4710EEE</referredTableID>
 <keyObject>20FDFDC5-2A45-5F30-D2C0-8ABDBC66C288</keyObject>
 <referredKeyID>20FDFDC5-2A45-5F30-D2C0-8ABDBC66C288</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>id_typu</refColNames>
+<refColNames>id_typu_imprezy</refColNames>
 <transferable>false</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

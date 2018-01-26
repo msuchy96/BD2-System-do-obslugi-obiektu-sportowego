@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AD4EA4AF-9082-332D-FBBD-27324C0F3296" name="PROMOCJE">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>0ECA8937-7251-0424-5FA8-854E4A6D3680</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<ordsAlias>promocja</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_promocji" id="F3D36CEF-BD95-AE09-D938-06C09C16EBE7">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>F80FAFE6-B980-FAD7-D971-F5D471A2BB99</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazwa" id="FFE1CCA3-CF05-E8CA-3172-523D6014CF73">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>179AE8F2-7AC4-5AF4-9365-E666C7B08125</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rabat" id="CD5A482F-815A-D787-E1A7-13E3CAA162A0">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>59D07897-1F63-2478-9B65-9F972880B963</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="opis" id="AC914032-2763-C26E-82CB-4D5B8E3938CE">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>C73A196D-BE29-5C2D-53AB-096FC2CBEEBA</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 CHAR</dataTypeSize>
+<ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_typu_klienta" id="D9E92A31-F52C-B1E1-78D7-76B2EF92F126">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>74F7CB4C-6CF0-49DA-907B-4CB7D3DB8D3E</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DBB6F8A8-4D9A-C58A-ADF5-13E0DF467DC7" referredColumn="1134B5F9-B19D-E36B-7D67-E7CCAA326B57"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3181BE1F-B9E2-CE1F-6096-7D6D86BDF816" name="PROMOCJA_PK">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>16BFD5BF-AA57-81F1-665A-09A4F1EF8677</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3D36CEF-BD95-AE09-D938-06C09C16EBE7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="21DED144-2576-1E4E-989F-3FCF3F025BD4" name="PROMOCJA_TYPY_KLIENTOW_FK">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>4C762102-4E03-25C3-0505-78E45DBF2C8B</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D9E92A31-F52C-B1E1-78D7-76B2EF92F126"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -3,9 +3,8 @@
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-21 19:18:18 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -30,7 +29,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_typu" id="21509963-AF78-8AE0-7629-752E249C890E">
+<Attribute name="id_typu_sektora" id="21509963-AF78-8AE0-7629-752E249C890E">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-22 12:55:50 UTC</createdTime>
 <generatorID>E6F48F3E-AD31-372D-41F8-4A07DCE6EB68</generatorID>
@@ -48,14 +47,15 @@
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-21 19:18:23 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -63,9 +63,8 @@
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-21 19:18:56 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

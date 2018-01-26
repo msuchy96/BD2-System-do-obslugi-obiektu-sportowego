@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3D87209E-2724-A488-0928-0CD706484006" containerWithKeyObject="577D0B57-8670-D289-9554-EB332C75CC2D" localFKIndex="DAE3EA19-3F07-D2C0-76EB-10B9F0EF7CBE" name="ZAKUPY_PROMOCJA_FK">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>C049C660-5C67-3A58-7246-111974B5214F</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<referredTableLongName>PROMOCJE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>AD4EA4AF-9082-332D-FBBD-27324C0F3296</referredTableID>
+<keyObject>3181BE1F-B9E2-CE1F-6096-7D6D86BDF816</keyObject>
+<referredKeyID>3181BE1F-B9E2-CE1F-6096-7D6D86BDF816</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>id_promocji</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

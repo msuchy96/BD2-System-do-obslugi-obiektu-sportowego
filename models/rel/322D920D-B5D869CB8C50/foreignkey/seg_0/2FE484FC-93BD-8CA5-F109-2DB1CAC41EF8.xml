@@ -5,12 +5,12 @@
 <generatorID>BFF793DE-42EF-6CD5-CBBF-3277B5311EF6</generatorID>
 <ownerDesignName>models</ownerDesignName>
 <referredTableLongName>TYPY_SEKTOROW</referredTableLongName>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>D1004D61-33EA-E683-B7F1-7B0A5A003C58</referredTableID>
 <keyObject>9374C051-54A7-BD45-F23B-1F53B8F90DF9</keyObject>
 <referredKeyID>9374C051-54A7-BD45-F23B-1F53B8F90DF9</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>id_typu</refColNames>
+<refColNames>id_typu_sektora</refColNames>
 <transferable>false</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

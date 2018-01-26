@@ -32,7 +32,7 @@
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="data" id="0D5F3877-7A8A-5DC3-14B4-E5CA63616270">
+<Column name="data_imprezy" id="0D5F3877-7A8A-5DC3-14B4-E5CA63616270">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>E443C025-0126-85B1-8DDE-20888B3723E7</generatorID>
@@ -41,18 +41,6 @@
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="opis" id="3889730E-D1AB-542F-0770-4FDCA1D10414">
-<createdBy>zamoj</createdBy>
-<createdTime>2017-12-23 17:09:22 UTC</createdTime>
-<ownerDesignName>models</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30 CHAR</dataTypeSize>
-<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="id_stadionu" id="11C4C4B1-6856-E83B-6420-581F6CCD04AD">
@@ -70,7 +58,7 @@
 <colAssociation fkAssociation="163DF477-4876-39D0-0C5E-6EB93B17A223" referredColumn="4C1A5DC8-4FA1-79BA-E8F6-128188C7150C"/>
 </associations>
 </Column>
-<Column name="id_typu" id="14A758B3-2B49-6115-57C4-7930AE53A002">
+<Column name="id_typu_imprezy" id="14A758B3-2B49-6115-57C4-7930AE53A002">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>61509081-DF7E-AD78-925B-655B5FA95ADD</generatorID>
@@ -84,6 +72,18 @@
 <associations>
 <colAssociation fkAssociation="06F8016A-249E-8A94-2247-15B8FE0DE92E" referredColumn="F69A6360-BCFC-E251-1AAB-C177E11124F6"/>
 </associations>
+</Column>
+<Column name="opis" id="55EB65EA-EAF8-BC29-1509-EB3840B17E01">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:55:54 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

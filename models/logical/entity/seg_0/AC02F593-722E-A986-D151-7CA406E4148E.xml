@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_typu" id="C0EC0071-6C71-3064-E2DF-FB1899E24D6D">
+<Attribute name="id_typu_imprezy" id="C0EC0071-6C71-3064-E2DF-FB1899E24D6D">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-21 19:25:16 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
@@ -40,8 +40,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30 CHAR</dataTypeSize>
-<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>150 CHAR</dataTypeSize>
+<ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="opis" id="4064272F-B11A-E16F-8226-24FDDA4794C6">
 <createdBy>koraxiss</createdBy>

@@ -10,7 +10,7 @@
 <keyObject>20FDFDC5-2A45-5F30-D2C0-8ABDBC66C288</keyObject>
 <referredKeyID>20FDFDC5-2A45-5F30-D2C0-8ABDBC66C288</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>id_typu</refColNames>
+<refColNames>id_typu_imprezy</refColNames>
 <transferable>false</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

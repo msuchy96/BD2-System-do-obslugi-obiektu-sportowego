@@ -16,5 +16,5 @@
 <targetCardinalityString>*</targetCardinalityString>
 <targetEntity>6D2D9C4E-E4C6-2A94-B39C-77FCBB825B48</targetEntity>
 <transferable>true</transferable>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 </Relation>

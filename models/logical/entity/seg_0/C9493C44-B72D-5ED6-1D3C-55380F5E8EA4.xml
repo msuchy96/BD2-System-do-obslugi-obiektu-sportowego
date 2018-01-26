@@ -3,9 +3,8 @@
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:31:35 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,9 +19,8 @@
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 23:05:58 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -33,9 +31,8 @@
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:42:37 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -47,9 +44,8 @@
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:42:37 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -57,26 +53,12 @@
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pesel" id="3D6060DA-59E4-D639-0328-E5369FFA1F8E">
-<createdBy>zamoj</createdBy>
-<createdTime>2017-12-21 21:42:37 UTC</createdTime>
-<ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
-<engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="zdjecie" id="04B3222B-13CA-EE39-EF88-C938223139FB">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:42:38 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -87,17 +69,31 @@
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:42:38 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16 CHAR</dataTypeSize>
+<ownDataTypeParameters>16 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_typu" id="E9093659-179B-F676-12B1-E7CA6552425D">
+<Attribute name="pesel" id="3D6060DA-59E4-D639-0328-E5369FFA1F8E">
+<createdBy>zamoj</createdBy>
+<createdTime>2017-12-21 21:42:37 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<engineerTo>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11 CHAR</dataTypeSize>
+<ownDataTypeParameters>11 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_typu_klienta" id="E9093659-179B-F676-12B1-E7CA6552425D">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 22:09:37 UTC</createdTime>
 <generatorID>EA67BDBA-DB07-C2E0-A90E-D3FDBF0D43DD</generatorID>
@@ -117,9 +113,8 @@
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 23:06:12 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="71C8A7E3-95B8-5B58-9B8A-7B5250F5658F" containerWithKeyObject="B08CF356-0268-5C31-C70E-6FC255A77923" localFKIndex="7C0B5D40-5D6B-76D4-E742-6F71D445469B" name="TYP_KARNETU_TYPY_SEKTOROW_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="71C8A7E3-95B8-5B58-9B8A-7B5250F5658F" containerWithKeyObject="B08CF356-0268-5C31-C70E-6FC255A77923" localFKIndex="7C0B5D40-5D6B-76D4-E742-6F71D445469B" name="TYPY_KARNETOW_TYPY_SEKTOROW_FK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>4D54C357-B54E-6492-495F-E7D73423EA6A</generatorID>
 <ownerDesignName>models</ownerDesignName>
 <referredTableLongName>TYPY_SEKTOROW</referredTableLongName>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>D1004D61-33EA-E683-B7F1-7B0A5A003C58</referredTableID>
 <keyObject>9374C051-54A7-BD45-F23B-1F53B8F90DF9</keyObject>
 <referredKeyID>9374C051-54A7-BD45-F23B-1F53B8F90DF9</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>id_typu</refColNames>
+<refColNames>id_typu_sektora</refColNames>
 <transferable>false</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

@@ -5,7 +5,7 @@
 <generatorID>99A39798-3733-BBD7-7852-C77C66FCD2D1</generatorID>
 <ownerDesignName>models</ownerDesignName>
 <referredTableLongName>ZAKUPY</referredTableLongName>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>577D0B57-8670-D289-9554-EB332C75CC2D</referredTableID>
 <keyObject>6D7CF586-0EF9-FE73-0DF6-E926A24BBE9F</keyObject>
 <referredKeyID>6D7CF586-0EF9-FE73-0DF6-E926A24BBE9F</referredKeyID>

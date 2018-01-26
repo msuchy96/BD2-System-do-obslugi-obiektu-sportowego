@@ -29,7 +29,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="data" id="4AD9BFA1-BF08-28C8-EE9C-395FDEA00757">
+<Attribute name="data_zakupu" id="4AD9BFA1-BF08-28C8-EE9C-395FDEA00757">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:40:03 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
@@ -42,6 +42,20 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="cena" id="CA333AB2-0546-7588-763B-5A7D38B38D3F">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-25 15:05:14 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<engineerTo>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
+</Attribute>
 <Attribute name="id_klienta" id="2442CF12-9E6E-CB33-4B60-1D794AD57171">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 23:06:14 UTC</createdTime>
@@ -51,6 +65,21 @@
 <item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <referedAttribute>4E1AC13F-8C58-DC0E-0A95-2A12C531C59B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_promocji" id="BFC17901-3F0D-AF90-6719-37214472259B">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:49:04 UTC</createdTime>
+<generatorID>C049C660-5C67-3A58-7246-111974B5214F</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<engineerTo>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>F80FAFE6-B980-FAD7-D971-F5D471A2BB99</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>

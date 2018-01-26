@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C346FF0B-F14B-8103-862B-6AB838766E71" containerWithKeyObject="8D002A5D-8521-4AC5-8DA9-87566196EE4E" localFKIndex="B62D088A-EB16-6246-49F0-C077C83B1454" name="KARNET_TYP_KARNETU_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C346FF0B-F14B-8103-862B-6AB838766E71" containerWithKeyObject="8D002A5D-8521-4AC5-8DA9-87566196EE4E" localFKIndex="B62D088A-EB16-6246-49F0-C077C83B1454" name="KARNET_TYPY_KARNETOW_FK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>89280AF1-8816-64AA-DE09-943EB1DF5DE8</generatorID>
@@ -10,7 +10,7 @@
 <keyObject>2C09A73D-80C7-F262-75D5-BDF4CBC41D6A</keyObject>
 <referredKeyID>2C09A73D-80C7-F262-75D5-BDF4CBC41D6A</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>id_typu</refColNames>
+<refColNames>id_typu_karnetu</refColNames>
 <transferable>false</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

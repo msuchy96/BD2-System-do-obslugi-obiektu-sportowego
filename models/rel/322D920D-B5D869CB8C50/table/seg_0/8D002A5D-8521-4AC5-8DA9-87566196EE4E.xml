@@ -1,9 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8D002A5D-8521-4AC5-8DA9-87566196EE4E" name="KARNET">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8D002A5D-8521-4AC5-8DA9-87566196EE4E" name="KARNETY">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>6DC960E7-AB45-4BD8-3470-2971036BE6F0</generatorID>
 <ownerDesignName>models</ownerDesignName>
+<ordsAlias>karnet</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -49,7 +50,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="id_klienta" id="52329753-2074-1BF7-B84B-739DEA032C64">
@@ -78,9 +81,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="01220E31-4CCA-33B6-2A7C-6122BF42E08D" referredColumn="1134B5F9-B19D-E36B-7D67-E7CCAA326B57"/>
-</associations>
 </Column>
 <Column name="id_typu_karnetu" id="1007BD4B-9A4A-46B9-94B9-0421BB9F3ED4">
 <createdBy>koraxiss</createdBy>
@@ -97,9 +97,25 @@
 <colAssociation fkAssociation="C346FF0B-F14B-8103-862B-6AB838766E71" referredColumn="011937EA-3017-C31C-92D3-8B9A89A36360"/>
 </associations>
 </Column>
+<Column name="id_promocji" id="D8B54592-3CCB-0498-E89F-C90B50B096BF">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 12:17:30 UTC</createdTime>
+<generatorID>1B0AF1E2-A1A7-B9E9-12FD-6CE4EE45994A</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D4DDCB5F-1093-3773-8C77-AAB21182A6F8" referredColumn="F3D36CEF-BD95-AE09-D938-06C09C16EBE7"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="879A24AD-3BCC-4E86-143E-6DFF35449A2D" name="KARNETY_PK">
+<ind_PK_UK id="879A24AD-3BCC-4E86-143E-6DFF35449A2D" name="KARNET_PK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>09684CB3-FF79-E794-8677-E590742457EE</generatorID>
@@ -111,7 +127,7 @@
 <colUsage columnID="95F28B14-71F7-F9B6-989E-DD3B20529FD5"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="61D52711-E4E8-1436-16AB-4CE98BD3E35E" name="KARNETY_KLIENCI_FK">
+<ind_PK_UK id="61D52711-E4E8-1436-16AB-4CE98BD3E35E" name="KARNET_KLIENCI_FK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>607910E8-5639-DD59-99FA-DC06F5921470</generatorID>
@@ -122,18 +138,7 @@
 <colUsage columnID="52329753-2074-1BF7-B84B-739DEA032C64"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="1521E6C1-79C3-56E6-6D56-37D8058812A1" name="KARNETY_TYPY_KLIENTOW_FK">
-<createdBy>koraxiss</createdBy>
-<createdTime>2017-12-22 11:59:33 UTC</createdTime>
-<generatorID>7D54B9AC-29D8-D714-9328-C5FAA7D1D458</generatorID>
-<ownerDesignName>models</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="EE16AF99-9050-F699-0385-4B259C5A9B54"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="B62D088A-EB16-6246-49F0-C077C83B1454" name="KARNET_TYP_KARNETU_FK">
+<ind_PK_UK id="B62D088A-EB16-6246-49F0-C077C83B1454" name="KARNET_TYPY_KARNETOW_FK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>89280AF1-8816-64AA-DE09-943EB1DF5DE8</generatorID>
@@ -142,6 +147,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1007BD4B-9A4A-46B9-94B9-0421BB9F3ED4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0DF9AC27-70DB-D2B6-8524-B987E0E0BABB" name="KARNET_PROMOCJA_FK">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>7D54B9AC-29D8-D714-9328-C5FAA7D1D458</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D8B54592-3CCB-0498-E89F-C90B50B096BF"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

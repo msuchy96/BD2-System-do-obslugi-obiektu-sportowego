@@ -122,9 +122,8 @@
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:47:59 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="false"/>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

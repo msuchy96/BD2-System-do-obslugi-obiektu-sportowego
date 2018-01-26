@@ -61,21 +61,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="id_typu" id="D95C0D38-18CD-084F-F6A7-314AD304DFEE">
-<createdBy>zamoj</createdBy>
-<createdTime>2017-12-21 22:13:53 UTC</createdTime>
-<generatorID>7D54B9AC-29D8-D714-9328-C5FAA7D1D458</generatorID>
-<ownerDesignName>models</ownerDesignName>
-<engineerTo>
-<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
-</engineerTo>
-<referedAttribute>D74CB0B8-DC0E-A7E1-8428-360966232AA6</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_klienta" id="9BB06BFC-B86C-CAF6-2FE9-C147654DA82A">
 <createdBy>zamoj</createdBy>
@@ -91,7 +79,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_typu1" id="1574BF4B-6CB2-2EA7-AD7B-D75C2FFC6603">
+<Attribute name="id_typu_karnetu" id="1574BF4B-6CB2-2EA7-AD7B-D75C2FFC6603">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:01:13 UTC</createdTime>
 <generatorID>89280AF1-8816-64AA-DE09-943EB1DF5DE8</generatorID>
@@ -100,6 +88,21 @@
 <item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
 </engineerTo>
 <referedAttribute>7B2415B2-271D-538A-1050-A5690373D421</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_promocji" id="1B0AF1E2-A1A7-B9E9-12FD-6CE4EE45994A">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:47:41 UTC</createdTime>
+<generatorID>7D54B9AC-29D8-D714-9328-C5FAA7D1D458</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<engineerTo>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>F80FAFE6-B980-FAD7-D971-F5D471A2BB99</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>

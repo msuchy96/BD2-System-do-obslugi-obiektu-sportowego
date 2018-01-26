@@ -9,7 +9,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_typu" id="011937EA-3017-C31C-92D3-8B9A89A36360">
+<Column name="id_typu_karnetu" id="011937EA-3017-C31C-92D3-8B9A89A36360">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>7B2415B2-271D-538A-1050-A5690373D421</generatorID>
@@ -28,8 +28,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30 CHAR</dataTypeSize>
-<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="cena" id="5EC32DE1-DC7F-7744-DB43-FE5F70F18DA3">
@@ -40,7 +40,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="okres_waznosci" id="84FDDCAF-A1E8-A25B-C62B-2DE32A37FF67">
@@ -50,7 +52,7 @@
 <ownerDesignName>models</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT014</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -99,7 +101,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="2C09A73D-80C7-F262-75D5-BDF4CBC41D6A" name="TYP_KARNETU_PK">
+<ind_PK_UK id="2C09A73D-80C7-F262-75D5-BDF4CBC41D6A" name="TYPY_KARNETOW_PK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>6FF07396-0CD3-3580-5FA8-87A29599C6DB</generatorID>
@@ -111,7 +113,7 @@
 <colUsage columnID="011937EA-3017-C31C-92D3-8B9A89A36360"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="7C0B5D40-5D6B-76D4-E742-6F71D445469B" name="TYP_KARNETU_TYPY_SEKTOROW_FK">
+<ind_PK_UK id="7C0B5D40-5D6B-76D4-E742-6F71D445469B" name="TYPY_KARNETOW_TYPY_SEKTOROW_FK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>4D54C357-B54E-6492-495F-E7D73423EA6A</generatorID>
@@ -122,7 +124,7 @@
 <colUsage columnID="CE791C8C-0742-18D5-6D39-14782675B1EE"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="5A21D566-EEA0-ED89-A4F3-FB0E7EA969F3" name="TYP_KARNETU_TYPY_IMPREZ_FK">
+<ind_PK_UK id="5A21D566-EEA0-ED89-A4F3-FB0E7EA969F3" name="TYPY_KARNETOW_TYPY_IMPREZ_FK">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>91511614-B233-5A3F-1DEE-DD3E69C60BA8</generatorID>

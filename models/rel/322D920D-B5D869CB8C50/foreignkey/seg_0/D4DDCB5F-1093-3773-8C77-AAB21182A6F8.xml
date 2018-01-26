@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D4DDCB5F-1093-3773-8C77-AAB21182A6F8" containerWithKeyObject="8D002A5D-8521-4AC5-8DA9-87566196EE4E" localFKIndex="0DF9AC27-70DB-D2B6-8524-B987E0E0BABB" name="KARNET_PROMOCJA_FK">
+<createdBy>koraxiss</createdBy>
+<createdTime>2018-01-10 11:54:38 UTC</createdTime>
+<generatorID>7D54B9AC-29D8-D714-9328-C5FAA7D1D458</generatorID>
+<ownerDesignName>models</ownerDesignName>
+<referredTableLongName>PROMOCJE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>AD4EA4AF-9082-332D-FBBD-27324C0F3296</referredTableID>
+<keyObject>3181BE1F-B9E2-CE1F-6096-7D6D86BDF816</keyObject>
+<referredKeyID>3181BE1F-B9E2-CE1F-6096-7D6D86BDF816</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>id_promocji</refColNames>
+<transferable>false</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
