@@ -39,13 +39,13 @@ public class TestWindow {
 
         populationButton.setOnAction(e -> {
             double time = Test.populate(connection);
-            System.out.println("Populating elapsed time: " + time);
+            System.out.println("Populating elapsed time: " + time/1000 + " seconds");
             stage.close();
         });
 
         deletionButton.setOnAction(e -> {
             double time = Test.delete(connection);
-            System.out.println("Deletion elapsed time: " + time);
+            System.out.println("Deletion elapsed time: " + time/1000 + " seconds");
             stage.close();
         });
 
