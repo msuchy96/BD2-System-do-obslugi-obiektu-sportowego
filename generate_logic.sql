@@ -2,15 +2,16 @@
 
 /*SEKWENCJE*/
 
-CREATE SEQUENCE ID_TYPU_SEKTORA_seq START WITH 1;
+CREATE SEQUENCE ID_TYPU_SEKTORA_seq START WITH 4;
+CREATE SEQUENCE ID_TYPU_IMPREZY_seq START WITH 4;
+CREATE SEQUENCE ID_TYPU_KLIENTA_seq START WITH 13;
+CREATE SEQUENCE ID_PROMOCJI_seq     START WITH 30;
+CREATE SEQUENCE ID_TYPU_KARNETU_seq START WITH 13;
+
 CREATE SEQUENCE ID_STADIONU_seq     START WITH 1;
 CREATE SEQUENCE ID_SEKTORU_seq      START WITH 1;
-CREATE SEQUENCE ID_TYPU_IMPREZY_seq START WITH 1;
 CREATE SEQUENCE ID_IMPREZY_seq      START WITH 1;
-CREATE SEQUENCE ID_TYPU_KLIENTA_seq START WITH 1;
 CREATE SEQUENCE ID_KLIENTA_seq      START WITH 1;
-CREATE SEQUENCE ID_PROMOCJI_seq     START WITH 1;
-CREATE SEQUENCE ID_TYPU_KARNETU_seq START WITH 1;
 CREATE SEQUENCE ID_KARNETU_seq      START WITH 1;
 CREATE SEQUENCE ID_REZERWACJI_seq   START WITH 1;
 CREATE SEQUENCE ID_ZAKUPU_seq       START WITH 1;
@@ -28,6 +29,51 @@ BEGIN
   FROM   dual;
 END;
 /
+
+create or replace TRIGGER INCREMENT_ID_TYPU_IMPREZY
+BEFORE INSERT ON TYPY_IMPREZ
+FOR EACH ROW
+  WHEN (new.ID_TYPU_IMPREZY IS NULL)
+BEGIN
+  SELECT ID_TYPU_IMPREZY_seq.NEXTVAL
+  INTO   :new.ID_TYPU_IMPREZY
+  FROM   dual;
+END;
+/
+
+create or replace TRIGGER INCREMENT_ID_TYPU_KLIENTA
+BEFORE INSERT ON TYPY_KLIENTOW
+FOR EACH ROW
+  WHEN (new.ID_TYPU_KLIENTA IS NULL)
+BEGIN
+  SELECT ID_TYPU_KLIENTA_seq.NEXTVAL
+  INTO   :new.ID_TYPU_KLIENTA
+  FROM   dual;
+END;
+/
+
+create or replace TRIGGER INCREMENT_ID_REZERWACJI
+BEFORE INSERT ON REZERWACJE
+FOR EACH ROW
+  WHEN (new.ID_REZERWACJI IS NULL)
+BEGIN
+  SELECT ID_REZERWACJI_seq.NEXTVAL
+  INTO   :new.ID_REZERWACJI
+  FROM   dual;
+END;
+/
+
+create or replace TRIGGER INCREMENT_ID_TYPU_KARNETU
+BEFORE INSERT ON TYPY_KARNETOW
+FOR EACH ROW
+  WHEN (new.ID_TYPU_KARNETU IS NULL)
+BEGIN
+  SELECT ID_TYPU_KARNETU_seq.NEXTVAL
+  INTO   :new.ID_TYPU_KARNETU
+  FROM   dual;
+END;
+/
+
 
 create or replace TRIGGER INCREMENT_ID_STADIONU
 BEFORE INSERT ON STADIONY
@@ -51,17 +97,6 @@ BEGIN
 END;
 /
 
-create or replace TRIGGER INCREMENT_ID_TYPU_IMPREZY
-BEFORE INSERT ON TYPY_IMPREZ
-FOR EACH ROW
-  WHEN (new.ID_TYPU_IMPREZY IS NULL)
-BEGIN
-  SELECT ID_TYPU_IMPREZY_seq.NEXTVAL
-  INTO   :new.ID_TYPU_IMPREZY
-  FROM   dual;
-END;
-/
-
 create or replace TRIGGER INCREMENT_ID_IMPREZY
 BEFORE INSERT ON IMPREZY
 FOR EACH ROW
@@ -69,17 +104,6 @@ FOR EACH ROW
 BEGIN
   SELECT ID_IMPREZY_seq.NEXTVAL
   INTO   :new.ID_IMPREZY
-  FROM   dual;
-END;
-/
-
-create or replace TRIGGER INCREMENT_ID_TYPU_KLIENTA
-BEFORE INSERT ON TYPY_KLIENTOW
-FOR EACH ROW
-  WHEN (new.ID_TYPU_KLIENTA IS NULL)
-BEGIN
-  SELECT ID_TYPU_KLIENTA_seq.NEXTVAL
-  INTO   :new.ID_TYPU_KLIENTA
   FROM   dual;
 END;
 /
@@ -106,17 +130,6 @@ BEGIN
 END;
 /
 
-create or replace TRIGGER INCREMENT_ID_TYPU_KARNETU
-BEFORE INSERT ON TYPY_KARNETOW
-FOR EACH ROW
-  WHEN (new.ID_TYPU_KARNETU IS NULL)
-BEGIN
-  SELECT ID_TYPU_KARNETU_seq.NEXTVAL
-  INTO   :new.ID_TYPU_KARNETU
-  FROM   dual;
-END;
-/
-
 create or replace TRIGGER INCREMENT_ID_KARNETU
 BEFORE INSERT ON KARNETY
 FOR EACH ROW
@@ -124,17 +137,6 @@ FOR EACH ROW
 BEGIN
   SELECT ID_KARNETU_seq.NEXTVAL
   INTO   :new.ID_KARNETU
-  FROM   dual;
-END;
-/
-
-create or replace TRIGGER INCREMENT_ID_REZERWACJI
-BEFORE INSERT ON REZERWACJE
-FOR EACH ROW
-  WHEN (new.ID_REZERWACJI IS NULL)
-BEGIN
-  SELECT ID_REZERWACJI_seq.NEXTVAL
-  INTO   :new.ID_REZERWACJI
   FROM   dual;
 END;
 /
@@ -149,6 +151,7 @@ BEGIN
   FROM   dual;
 END;
 /
+
 
 create or replace TRIGGER DELETE_BILETY_FROM_REZERWACJE
 BEFORE DELETE ON REZERWACJE
@@ -184,28 +187,127 @@ END;
 create or replace PROCEDURE wstaw_do_typy_sektorow
 IS
 BEGIN
-    INSERT INTO typy_sektorow (NAZWA, OPIS) VALUES ('TYP 1','test_opis1');
-    INSERT INTO typy_sektorow (NAZWA, OPIS) VALUES ('TYP 2','test_opis2');
-    INSERT INTO typy_sektorow (NAZWA, OPIS) VALUES ('TYP 3','test_opis3');
+    INSERT INTO typy_sektorow (ID_TYPU_SEKTORA, NAZWA, OPIS) VALUES (1, 'TYP 1','test_opis1');
+    INSERT INTO typy_sektorow (ID_TYPU_SEKTORA, NAZWA, OPIS) VALUES (2, 'TYP 2','test_opis2');
+    INSERT INTO typy_sektorow (ID_TYPU_SEKTORA, NAZWA, OPIS) VALUES (3, 'TYP 3','test_opis3');
 
 	DBMS_OUTPUT.put_line('Dodano wszystkie typy sektorów.');
 COMMIT;
 END;
 /
 
-create or replace PROCEDURE stworz_sektor_i_miejsca (stadium NUMBER, type_sector NUMBER, rows NUMBER, seats_per_row NUMBER)
+create or replace PROCEDURE wstaw_do_typy_imprez
 IS
 BEGIN
-	INSERT INTO SEKTORY (ID_TYPU_SEKTORA, ID_STADIONU) VALUES (type_sector, stadium);
+
+    INSERT INTO typy_imprez (ID_TYPU_IMPREZY, NAZWA, OPIS) VALUES (1, 'Występ','test_opis1');
+    INSERT INTO typy_imprez (ID_TYPU_IMPREZY, NAZWA, OPIS) VALUES (2, 'Wydarzenie sportowe','test_opis2');
+    INSERT INTO typy_imprez (ID_TYPU_IMPREZY, NAZWA, OPIS) VALUES (3, 'Koncert','test_opis3');
+
+	DBMS_OUTPUT.put_line('Dodano wszystkie typy imprez.');
+COMMIT;
+END;
+/
+
+create or replace PROCEDURE wstaw_do_typy_klientow
+IS
+BEGIN
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (1, 'Normalny', 'Dorosly');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (2, 'Dziecko',  'Dziecko do lat 12');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (3, 'Emeryt',   'Po osiegnieciu wieku emerytalnego: 65 lat');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (4, 'Kombatant','kombatant wojennych');
+
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (5, 'Normalny/Stały klient 1', 'Dorosly');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (6, 'Dziecko/Stały klient 1',  'Dziecko do lat 12');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (7, 'Emeryt/Stały klient 1',   'Po osiegnieciu wieku emerytalnego: 65 lat');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (8, 'Kombatant/Stały klient 1','kombatant wojennych');
+
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (9, 'Normalny/Stały klient 2', 'Dorosly');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (10,'Dziecko/Stały klient 2',  'Dziecko do lat 12');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (11,'Emeryt/Stały klient 2',   'Po osiegnieciu wieku emerytalnego: 65 lat');
+    INSERT INTO typy_klientow (ID_TYPU_KLIENTA, NAZWA, OPIS) VALUES (12,'Kombatant/Stały klient 2','kombatant wojennych');
+	DBMS_OUTPUT.put_line('Dodano wszystkie typy klientów.');
+COMMIT;
+END;
+/
+
+create or replace PROCEDURE wstaw_do_promocje
+IS
+BEGIN
+  FOR i IN 1..12 LOOP
+    INSERT INTO PROMOCJE (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (i,'Brak',0,'Nie przysluguje znizka', i);
+  END LOOP;
+
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (13,'Zniżka dziecięca',50,'50% zniżki od ceny oryginalnej', 2 );
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (14,'Zniżka dziecięca',50,'50% zniżki od ceny oryginalnej', 6 );
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (15,'Zniżka dziecięca',50,'50% zniżki od ceny oryginalnej', 10 );
+
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (16, 'Zniżka dla emeryta',70,'70% zniżki od ceny oryginalnej', 3);
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (17, 'Zniżka dla emeryta',70,'70% zniżki od ceny oryginalnej', 7);
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (18, 'Zniżka dla emeryta',70,'70% zniżki od ceny oryginalnej', 11);
+
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (19, 'Zniżka dla kombatanta',95,'90% zniżki od ceny oryginalnej', 4);
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (20, 'Zniżka dla kombatanta',95,'90% zniżki od ceny oryginalnej', 8);
+  INSERT INTO promocje (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (21, 'Zniżka dla kombatanta',95,'90% zniżki od ceny oryginalnej', 12);
+
+  FOR i IN 0..3 LOOP
+    INSERT INTO PROMOCJE (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (22 + i, 'Stały klient 1',10,'10% zniżki od ceny oryginalnej dla osob, które kupiły n biletów w ciągu ostatniego pol roku', 5 + i);
+  END LOOP;
+
+  FOR i IN 0..3 LOOP
+    INSERT INTO PROMOCJE (ID_PROMOCJI, NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES (26 + i, 'Stały klient 2',20,'20% zniżki od ceny oryginalnej dla osob, które wydaly n zlotych w ciągu ostatniego pol roku', 9 + i);
+  END LOOP;
+
+	DBMS_OUTPUT.put_line('Dodano wszystkie promocje.');
+COMMIT;
+END;
+/
+
+create or replace PROCEDURE wstaw_do_typy_karnetow
+IS
+BEGIN
+
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (1, 'Karnet Ligi Diamentowej Cheap', 2000, 6, 'brak opisu', 1, 2);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (2, 'Karnet Ligi Diamentowej Normal', 3000, 6, 'brak opisu', 2, 2);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (3, 'Karnet Ligi Diamentowej Premium', 4000, 6, 'brak opisu', 3, 2);
+
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (4, 'Karnet Klubu Kabaretowego Cheap', 100, 3, 'brak opisu', 1, 3);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (5,'Karnet Klubu Kabaretowego Normal', 150, 3, 'brak opisu', 2, 3);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (6, 'Karnet Klubu Kabaretowego Premium', 200, 3, 'brak opisu', 3, 3);
+
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (7, 'Karnet Sezonu Piłkarskiego Cheap',200, 9, 'brak opisu', 1, 2);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (8, 'Karnet Sezonu Piłkarskiego Normal',400, 9, 'brak opisu', 2, 2);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (9, 'Karnet Sezonu Piłkarskiego Premium',600, 9, 'brak opisu', 3, 2);
+
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (10, 'Karnet Koncertowy Cheap',600, 2, 'brak opisu', 1, 1);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (11, 'Karnet Koncertowy Normal',800, 2, 'brak opisu', 2, 1);
+    INSERT INTO typy_karnetow (ID_TYPU_KARNETU, NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES (12, 'Karnet Koncertowy Premium',1000, 2, 'brak opisu', 3, 1);
+
+	DBMS_OUTPUT.put_line('Dodano wszystkie typy karnetów.');
+COMMIT;
+END;
+/
+
+create or replace PROCEDURE stworz_sektor_i_miejsca (curr_id_stadionu NUMBER, type_sector NUMBER, rows NUMBER, seats_per_row NUMBER, curr_id_sektora NUMBER DEFAULT NULL)
+IS
+  curr_id_s NUMBER;
+BEGIN
+	INSERT INTO SEKTORY (ID_SEKTORA, ID_TYPU_SEKTORA, ID_STADIONU) VALUES (curr_id_sektora, type_sector, curr_id_stadionu);
+
+  IF curr_id_sektora IS NULL THEN
+    curr_id_s := ID_SEKTORU_seq.currval;
+  ELSE
+    curr_id_s := curr_id_sektora;
+  END IF;
 
   FOR i IN 1..rows LOOP
     FOR j IN 1..seats_per_row LOOP
-      INSERT INTO MIEJSCA VALUES(i, j, ID_SEKTORU_seq.currval, stadium);
+      INSERT INTO MIEJSCA VALUES(i, j, curr_id_s, curr_id_stadionu);
     END LOOP;
   END LOOP;
 
 	COMMIT;
-  DBMS_OUTPUT.PUT_LINE('Dodano sektor: ' || ID_SEKTORU_seq.currval || ' i miejsca: ' || rows  || 'x' || seats_per_row);
+  DBMS_OUTPUT.PUT_LINE('Dodano sektor: ' || curr_id_s || ' i miejsca: ' || rows  || 'x' || seats_per_row);
 END;
 /
 
@@ -227,15 +329,15 @@ BEGIN
 
 
     FOR j IN 1..4 LOOP
-      STWORZ_SEKTOR_I_MIEJSCA(id, 1, 50, 100);
+      STWORZ_SEKTOR_I_MIEJSCA(id, 1, 50, 100, j);
     END LOOP;
 
     FOR j IN 5..8 LOOP
-      STWORZ_SEKTOR_I_MIEJSCA(id, 2, 100, 100);
+      STWORZ_SEKTOR_I_MIEJSCA(id, 2, 100, 100, j);
     END LOOP;
 
     FOR j IN 9..12 LOOP
-      STWORZ_SEKTOR_I_MIEJSCA(id, 3, 50, 100);
+      STWORZ_SEKTOR_I_MIEJSCA(id, 3, 50, 100, j);
     END LOOP;
     DBMS_OUTPUT.put_line('Dodano wszystkie sektory w stadionie: ' || id);
 
@@ -246,34 +348,33 @@ BEGIN
 END;
 /
 
-create or replace PROCEDURE wstaw_do_typy_imprez
-IS
-BEGIN
-
-    INSERT INTO typy_imprez (NAZWA, OPIS) VALUES ('Występ','test_opis1');
-    INSERT INTO typy_imprez (NAZWA, OPIS) VALUES ('Wydarzenie sportowe','test_opis2');
-    INSERT INTO typy_imprez (NAZWA, OPIS) VALUES ('Koncert','test_opis3');
-
-	DBMS_OUTPUT.put_line('Dodano wszystkie typy imprez.');
-COMMIT;
-END;
-/
-
 create or replace PROCEDURE stworz_ceny (curr_id_imprezy NUMBER)
 is
-  prize NUMBER;
+  CURSOR id_typu_sektora_cur IS
+    SELECT DISTINCT ID_TYPU_SEKTORA
+    FROM SEKTORY
+    WHERE ID_STADIONU = (SELECT I.ID_STADIONU FROM IMPREZY I WHERE ID_IMPREZY = curr_id_imprezy)
+    ORDER BY ID_TYPU_SEKTORA;
+
+  price NUMBER;
   curr_id_typu_imprezy NUMBER;
-  /*curr_id_typu_imprezy NUMBER;*/
+  curr_id_typu_sektora NUMBER;
+
 BEGIN
   SELECT ID_TYPU_IMPREZY INTO curr_id_typu_imprezy FROM IMPREZY WHERE ID_IMPREZY = curr_id_imprezy;
-  /*SELECT DISTINCT ID_TYPU_SEKTORA FROM SEKTORY WHERE ID_STADIONU = (SELECT DISTINCT ID_STADIONU FROM IMPREZY WHERE ID_IMPREZY = curr_id_imprezy);*/
 
-  prize := 50 * curr_id_typu_imprezy;
+  price := 50 * curr_id_typu_imprezy;
 
-  FOR i IN 1..ID_TYPU_SEKTORA_seq.currval LOOP
+  OPEN id_typu_sektora_cur;
+  LOOP
+    FETCH id_typu_sektora_cur INTO curr_id_typu_sektora;
+    EXIT WHEN id_typu_sektora_cur%NOTFOUND;
+
     INSERT INTO CENY (CENA, ID_TYPU_SEKTORA, ID_IMPREZY, ID_TYPU_IMPREZY)
-      VALUES(round(dbms_random.value(prize*i,prize*(i+1)),2), i, curr_id_imprezy, curr_id_typu_imprezy);
+      VALUES(round(dbms_random.value(price*curr_id_typu_sektora,price*(curr_id_typu_sektora+1)),2), curr_id_typu_sektora, curr_id_imprezy, curr_id_typu_imprezy);
   END LOOP;
+
+  CLOSE id_typu_sektora_cur;
 
 	COMMIT;
   DBMS_OUTPUT.put_line('Dodano ceny do imprezy: ' || curr_id_imprezy);
@@ -290,6 +391,14 @@ is
     dates TABSTR2;
     qdates NUMBER(5);
 
+
+  CURSOR id_stadionu_cur IS
+    SELECT DISTINCT ID_STADIONU
+    FROM STADIONY
+    ORDER BY ID_STADIONU;
+
+  curr_id_stadionu NUMBER;
+
 BEGIN
   nazwa := TABSTR('Praha','Centurion','Forum','ZaEkranem','5 po piatej','Syrena','Pokoj','Helios','CinemaCity','Multikino','Ton',
   'Riot','Iluzjon','Taras','Cheaper','Greater','GoldenScreen','BlueCity','GoldenGobles','All for All','Brok','Brzmien','Pod Baranami','Pod Gwiazdami',
@@ -302,36 +411,24 @@ BEGIN
                    DATE'2018-11-11',DATE'2018-11-14',DATE'2018-11-22',DATE'2018-12-14',DATE'2018-12-30');
 
   qdates := dates.count;
-  FOR i IN 0..(years-1) LOOP
-    FOR j IN 1..imprezy_per_year LOOP
-        INSERT into imprezy (NAZWA, DATA_IMPREZY, ID_STADIONU, ID_TYPU_IMPREZY, OPIS)
-          values (nazwa(round(dbms_random.value(1,qnazwa))), add_months(dates(21-j),-12*i) + (1/24*20), round(dbms_random.value(1,ID_STADIONU_seq.currval)), round(dbms_random.value(1,ID_TYPU_IMPREZY_seq.currval)),'test_opis');
-          STWORZ_CENY(ID_IMPREZY_seq.currval);
+
+  OPEN id_stadionu_cur;
+  LOOP
+    FETCH id_stadionu_cur INTO curr_id_stadionu;
+    EXIT WHEN id_stadionu_cur%NOTFOUND;
+
+    FOR i IN 0..(years-1) LOOP
+      FOR j IN 1..imprezy_per_year LOOP
+          INSERT into imprezy (NAZWA, DATA_IMPREZY, ID_STADIONU, ID_TYPU_IMPREZY, OPIS)
+            values (nazwa(round(dbms_random.value(1,qnazwa))), add_months(dates(21-j),-12*i) + (1/24*20), curr_id_stadionu, round(dbms_random.value(1,3)), 'test_opis');
+            STWORZ_CENY(ID_IMPREZY_seq.currval);
+      END LOOP;
     END LOOP;
   END LOOP;
+  CLOSE id_stadionu_cur;
+
 	COMMIT;
   DBMS_OUTPUT.put_line('Dodano wszystkie imprezy.');
-END;
-/
-
-create or replace PROCEDURE wstaw_do_typy_klientow
-IS
-BEGIN
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Normalny', 'Dorosly');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Dziecko',  'Dziecko do lat 12');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Emeryt',   'Po osiegnieciu wieku emerytalnego: 65 lat');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Kombatant','kombatant wojennych');
-
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Normalny/Stały klient 1', 'Dorosly');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Dziecko/Stały klient 1',  'Dziecko do lat 12');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Emeryt/Stały klient 1',   'Po osiegnieciu wieku emerytalnego: 65 lat');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Kombatant/Stały klient 1','kombatant wojennych');
-
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Normalny/Stały klient 2', 'Dorosly');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Dziecko/Stały klient 2',  'Dziecko do lat 12');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Emeryt/Stały klient 2',   'Po osiegnieciu wieku emerytalnego: 65 lat');
-    INSERT INTO typy_klientow (NAZWA, OPIS) VALUES ('Kombatant/Stały klient 2','kombatant wojennych');
-	DBMS_OUTPUT.put_line('Dodano wszystkie typy klientów.');
 END;
 /
 
@@ -433,94 +530,94 @@ BEGIN
 END;
 /
 
-create or replace PROCEDURE wstaw_do_promocje
-IS
+create or replace FUNCTION stworz_karnet (curr_id_klienta NUMBER, curr_id_typu_karnetu NUMBER, curr_id_promocji NUMBER DEFAULT 0, curr_data_wystawienia DATE DEFAULT (DATE'2000-01-01'))
+RETURN NUMBER IS
+  curr_data DATE;
+  curr_cena NUMBER;
+  curr_id_typu_klienta NUMBER;
+  okres_wyj NUMBER;
+  rabat_wej NUMBER;
+  p_exst NUMBER;
+
 BEGIN
-  FOR i IN 1..ID_TYPU_KLIENTA_seq.currval LOOP
-    INSERT INTO PROMOCJE (NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES ('Brak',0,'Nie przysluguje znizka', i);
-  END LOOP;
+  /*Sprawdzam czy Klinet posiada dana promocje*/
+  IF curr_id_promocji > 0 THEN
+    SELECT count(*) INTO p_exst FROM KLIENCI K JOIN PROMOCJE P ON K.ID_TYPU_KLIENTA = P.ID_TYPU_KLIENTA WHERE ID_KLIENTA = curr_id_klienta AND ID_PROMOCJI = curr_id_promocji;
+    IF p_exst = 0 THEN
+      RETURN -1;
+    END IF;
+  END IF;
 
-  FOR i IN 0..2 LOOP
-    INSERT INTO promocje (NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES ('Zniżka dziecięca',50,'50% zniżki od ceny oryginalnej', 2 + i*4 );
-  END LOOP;
+  IF curr_data_wystawienia = (DATE'2000-01-01') THEN
+    curr_data := SYSDATE;
+  ELSE
+    curr_data := curr_data_wystawienia;
+  END IF;
 
-  FOR i IN 0..2 LOOP
-    INSERT INTO promocje (NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES ('Zniżka dla emeryta',70,'70% zniżki od ceny oryginalnej', 3 + i*4);
-  END LOOP;
+  SELECT ID_TYPU_KLIENTA INTO curr_id_typu_klienta FROM KLIENCI WHERE ID_KLIENTA = curr_id_klienta;
 
-  FOR i IN 0..2 LOOP
-    INSERT INTO promocje (NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES ('Zniżka dla kombatanta',95,'90% zniżki od ceny oryginalnej', 4 + i*4);
-  END LOOP;
+  SELECT CENA, OKRES_WAZNOSCI INTO curr_cena, okres_wyj FROM typy_karnetow WHERE ID_TYPU_KARNETU = curr_id_typu_karnetu;
 
-  FOR i IN 5..8 LOOP
-    INSERT INTO PROMOCJE (NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES ('Stały klient 1',10,'10% zniżki od ceny oryginalnej dla osob, które kupiły n biletów w ciągu ostatniego pol roku', i);
-  END LOOP;
+  IF curr_id_promocji <= 0 THEN
+    INSERT INTO KARNETY (DATA_WYSTAWIENIA, DATA_WAZNOSCI, CENA, ID_KLIENTA, ID_TYPU_KLIENTA, ID_TYPU_KARNETU)
+      VALUES (curr_data, add_months(curr_data,okres_wyj), curr_cena, curr_id_klienta, curr_id_typu_klienta, curr_id_typu_karnetu);
 
-  FOR i IN 9..12 LOOP
-    INSERT INTO PROMOCJE (NAZWA, RABAT, OPIS, ID_TYPU_KLIENTA) VALUES ('Stały klient 2',20,'20% zniżki od ceny oryginalnej dla osob, które wydaly n zlotych w ciągu ostatniego pol roku', i);
-  END LOOP;
+  ELSE
+    SELECT RABAT INTO rabat_wej FROM PROMOCJE WHERE ID_PROMOCJI = curr_id_promocji;
+    IF rabat_wej > 0 THEN
+      curr_cena := round(curr_cena - curr_cena*(rabat_wej*0.01),2);
+    ELSE
+      curr_cena := round(curr_cena,2);
+    END IF;
+    INSERT INTO KARNETY (DATA_WYSTAWIENIA, DATA_WAZNOSCI, CENA, ID_KLIENTA, ID_TYPU_KLIENTA, ID_TYPU_KARNETU, ID_PROMOCJI)
+      VALUES (curr_data, add_months(curr_data,okres_wyj), curr_cena, curr_id_klienta, curr_id_typu_klienta, curr_id_typu_karnetu, curr_id_promocji);
+  END IF;
 
-	DBMS_OUTPUT.put_line('Dodano wszystkie promocje.');
-COMMIT;
-END;
-/
-
-create or replace PROCEDURE wstaw_do_typy_karnetow
-IS
-BEGIN
-
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Ligi Diamentowej Cheap', 2000, 6, 'brak opisu', 1, 2);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Ligi Diamentowej Normal', 3000, 6, 'brak opisu', 2, 2);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Ligi Diamentowej Premium', 4000, 6, 'brak opisu', 3, 2);
-
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Klubu Kabaretowego Cheap', 100, 3, 'brak opisu', 1, 3);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Klubu Kabaretowego Normal', 150, 3, 'brak opisu', 2, 3);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Klubu Kabaretowego Premium', 200, 3, 'brak opisu', 3, 3);
-
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Sezonu Piłkarskiego Cheap',200, 9, 'brak opisu', 1, 2);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Sezonu Piłkarskiego Normal',400, 9, 'brak opisu', 2, 2);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Sezonu Piłkarskiego Premium',600, 9, 'brak opisu', 3, 2);
-
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Koncertowy Cheap',600, 2, 'brak opisu', 1, 1);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Koncertowy Normal',800, 2, 'brak opisu', 2, 1);
-    INSERT INTO typy_karnetow (NAZWA, CENA, OKRES_WAZNOSCI, OPIS, ID_TYPU_SEKTORA, ID_TYPU_IMPREZY) VALUES ('Karnet Koncertowy Premium',1000, 2, 'brak opisu', 3, 1);
-
-	DBMS_OUTPUT.put_line('Dodano wszystkie typy karnetów.');
-COMMIT;
+  COMMIT;
+	DBMS_OUTPUT.put_line('Stworzono karnet: ' || ID_KARNETU_seq.currval);
+  RETURN ID_KARNETU_seq.currval;
 END;
 /
 
 create or replace PROCEDURE stworz_karnety (nr_karnety NUMBER)
 IS
   rand_date DATE;
-  end_date DATE;
-  jaki_karnet NUMBER;
-  cena_wej NUMBER;
-  okres_wyj NUMBER;
-  cena_wyj NUMBER(20,2);
-  rabat_wej NUMBER;
+  typ_karnetu NUMBER;
+
+  CURSOR id_klienta_cur IS
+    SELECT  ID_KLIENTA
+    FROM KLIENCI;
+
   curr_id_klienta NUMBER;
-  curr_id_typu_klienta NUMBER;
+  size_klienci NUMBER;
+  repeatt NUMBER;
+
+  k_exst NUMBER;
+
 BEGIN
 
-  FOR i IN 1..nr_karnety LOOP
-    jaki_karnet := round(dbms_random.value(1, ID_TYPU_KARNETU_seq.currval));
+  SELECT count(*) INTO size_klienci FROM KLIENCI;
+  repeatt := round(nr_karnety/size_klienci + 1/2 - 1/1000000);
+
+  OPEN id_klienta_cur;
+
+  FOR i IN 0..(nr_karnety-1) LOOP
+
+    IF MOD(i,repeatt) = 0 THEN
+      FETCH id_klienta_cur INTO curr_id_klienta;
+      EXIT WHEN id_klienta_cur%NOTFOUND;
+    END IF;
+
+    typ_karnetu := round(dbms_random.value(1, 12));
     rand_date := TO_DATE(TRUNC(DBMS_RANDOM.value(TO_CHAR(date '2013-01-01','J'),TO_CHAR(DATE '2017-12-31','J'))),'J');
-    SELECT CENA, OKRES_WAZNOSCI INTO cena_wej, okres_wyj FROM typy_karnetow WHERE ID_TYPU_KARNETU = jaki_karnet;
-    end_date := add_months(rand_date,okres_wyj);
 
-    curr_id_klienta := round(dbms_random.value(1, ID_KLIENTA_seq.currval));
-    SELECT ID_TYPU_KLIENTA INTO curr_id_typu_klienta FROM KLIENCI WHERE ID_KLIENTA = curr_id_klienta;
-
-    cena_wyj := round(cena_wej,2);
-
-    INSERT INTO karnety (DATA_WYSTAWIENIA, DATA_WAZNOSCI, CENA, ID_KLIENTA, ID_TYPU_KLIENTA, ID_TYPU_KARNETU)
-        values (rand_date, end_date, cena_wyj, curr_id_klienta, curr_id_typu_klienta, jaki_karnet);
+    k_exst := STWORZ_KARNET(curr_id_klienta, typ_karnetu, 0, rand_date);
 
   END LOOP;
+  CLOSE id_klienta_cur;
 
-	DBMS_OUTPUT.put_line('Stworzono karnety.');
-  COMMIT;
+	DBMS_OUTPUT.put_line('Stworzono karnety: ' || nr_karnety);
+COMMIT;
 END;
 /
 
@@ -536,6 +633,22 @@ RETURN NUMBER IS
   data_i DATE;
   biletow_count NUMBER;
 
+  CURSOR miejsca_rzad_miejsca_cur IS
+    SELECT RZAD, NR_MIEJSCA
+    FROM MIEJSCA
+    WHERE ID_STADIONU = curr_id_stadionu AND ID_SEKTORA = curr_id_sektora
+    ORDER BY RZAD, NR_MIEJSCA;
+
+  miejsca_r_m miejsca_rzad_miejsca_cur%ROWTYPE;
+
+  CURSOR bilety_rzad_miejsca_cur IS
+    SELECT RZAD, NR_MIEJSCA
+    FROM BILETY
+    WHERE ID_STADIONU = curr_id_stadionu AND ID_SEKTORA = curr_id_sektora AND ID_IMPREZY = curr_id_imprezy
+    ORDER BY RZAD, NR_MIEJSCA;
+
+  bilety_r_m bilety_rzad_miejsca_cur%ROWTYPE;
+
 BEGIN
   SELECT DISTINCT ID_STADIONU INTO curr_id_stadionu FROM IMPREZY WHERE ID_IMPREZY = curr_id_imprezy;
 
@@ -544,7 +657,7 @@ BEGIN
     RETURN -5;
   END IF;
 
-  IF curr_data_rezerwacji = (DATE'2000-01-01') THEN
+  IF curr_data_rezerwacji <= (DATE'2000-01-01') THEN
     curr_date := SYSDATE;
   ELSE
     curr_date := curr_data_rezerwacji;
@@ -560,48 +673,52 @@ BEGIN
   SELECT count(*) INTO m_exst FROM MIEJSCA WHERE ID_SEKTORA = curr_id_sektora AND ID_STADIONU = curr_id_stadionu;
   SELECT count(*) INTO b_exst FROM BILETY WHERE ID_SEKTORA = curr_id_sektora AND ID_STADIONU = curr_id_stadionu AND ID_IMPREZY = curr_id_imprezy;
   IF m_exst - b_exst < biletow THEN
-    /*DBMS_OUTPUT.put_line('miejsc: ' || m_exst || ' biletow: ' || b_exst);*/
     RETURN -1;
   END IF;
 
   /*Sprawdzam czy klient curr_id_klienta ma juz rezerwacje na impreze curr_id_imprezy: k_exst=0 - nie ma, k_exst>0 - ma*/
   SELECT count(*) INTO k_exst FROM REZERWACJE R JOIN BILETY B ON R.ID_REZERWACJI = B.ID_REZERWACJI WHERE ID_KLIENTA = curr_id_klienta AND ID_IMPREZY = curr_id_imprezy;
   IF k_exst > 0 THEN
-    /*DBMS_OUTPUT.put_line('Klien: ' || curr_id_klienta || ' ma juz rezerwacje');*/
     RETURN -2;
   END IF;
 
   /*Sprawdzam czy klient curr_id_klienta ma juz kupione bilety na impreze curr_id_imprezy: k_exst=0 - nie ma, k_exst>0 - ma*/
   SELECT count(*) INTO k_exst FROM ZAKUPY Z JOIN BILETY B ON Z.ID_ZAKUPU = B.ID_ZAKUPU WHERE ID_KLIENTA = curr_id_klienta AND ID_IMPREZY = curr_id_imprezy;
   IF k_exst > 0 THEN
-    /*DBMS_OUTPUT.put_line('Klien: ' || curr_id_klienta || ' ma juz zakupione bilety');*/
     RETURN -3;
   END IF;
 
   INSERT INTO REZERWACJE (DATA_REZERWACJI, OKRES, ID_KLIENTA)
     VALUES (curr_date, LEAST(curr_date + 30, data_i - 7), curr_id_klienta);
 
-  SELECT count(*) INTO rzedow FROM MIEJSCA B WHERE ID_STADIONU = curr_id_stadionu AND ID_SEKTORA = curr_id_sektora AND NR_MIEJSCA = 1;
-  SELECT count(*) INTO miejsc FROM MIEJSCA B WHERE ID_STADIONU = curr_id_stadionu AND ID_SEKTORA = curr_id_sektora AND RZAD = 1;
 
   biletow_count := biletow;
 
-  FOR i IN 1..rzedow LOOP
-    FOR j IN 1..miejsc LOOP
+  OPEN miejsca_rzad_miejsca_cur;
+  OPEN bilety_rzad_miejsca_cur;
+  FETCH bilety_rzad_miejsca_cur INTO bilety_r_m;
+  LOOP
+    FETCH miejsca_rzad_miejsca_cur INTO miejsca_r_m;
+    EXIT WHEN miejsca_rzad_miejsca_cur%NOTFOUND;
+    EXIT WHEN biletow_count <= 0;
 
-      IF biletow_count <= 0 THEN
-        EXIT;
-      END IF;
-
-      /*Sprawdzam czy miejsce zajete*/
-      SELECT count(*) INTO b_exst FROM BILETY WHERE ID_IMPREZY = curr_id_imprezy AND ID_SEKTORA = curr_id_sektora AND RZAD = i AND NR_MIEJSCA = j;
-      IF b_exst = 0 THEN
-        biletow_count := biletow_count -1;
+    IF bilety_rzad_miejsca_cur%NOTFOUND THEN
+      INSERT INTO BILETY (ID_IMPREZY, ID_STADIONU, ID_SEKTORA, RZAD, NR_MIEJSCA, ID_REZERWACJI)
+          VALUES (curr_id_imprezy, curr_id_stadionu, curr_id_sektora, miejsca_r_m.RZAD, miejsca_r_m.NR_MIEJSCA, ID_REZERWACJI_seq.currval);
+      biletow_count := biletow_count -1;
+    ELSE
+      IF  miejsca_r_m.RZAD =  bilety_r_m.RZAD AND miejsca_r_m.NR_MIEJSCA = bilety_r_m.NR_MIEJSCA THEN
+        FETCH bilety_rzad_miejsca_cur INTO bilety_r_m;
+      ELSE
         INSERT INTO BILETY (ID_IMPREZY, ID_STADIONU, ID_SEKTORA, RZAD, NR_MIEJSCA, ID_REZERWACJI)
-          VALUES (curr_id_imprezy, curr_id_stadionu, curr_id_sektora, i, j, ID_REZERWACJI_seq.currval);
+          VALUES (curr_id_imprezy, curr_id_stadionu, curr_id_sektora, miejsca_r_m.RZAD, miejsca_r_m.NR_MIEJSCA, ID_REZERWACJI_seq.currval);
+      biletow_count := biletow_count -1;
       END IF;
-    END LOOP;
+    END IF;
+
   END LOOP;
+  CLOSE bilety_rzad_miejsca_cur;
+  CLOSE miejsca_rzad_miejsca_cur;
 
   COMMIT;
 	DBMS_OUTPUT.put_line('Stworzono recerwacje: ' || ID_REZERWACJI_seq.currval);
@@ -611,94 +728,99 @@ END;
 
 create or replace PROCEDURE stworz_rezerwacje (rezerwacje_per_impreza NUMBER)
 IS
+  CURSOR id_imprezy_cur IS
+    SELECT ID_IMPREZY
+    FROM IMPREZY;
+
+  curr_id_imprezy NUMBER;
+
+  CURSOR id_klienta_cur IS
+    SELECT ID_KLIENTA
+    FROM KLIENCI;
+
+  curr_id_klienta NUMBER;
+
   data_i DATE;
   k_exst NUMBER;
   r_per_i NUMBER;
+
 BEGIN
 
-  FOR i IN 1..ID_IMPREZY_seq.currval LOOP
-    SELECT DATA_IMPREZY INTO data_i FROM IMPREZY WHERE ID_IMPREZY = i;
+  OPEN id_imprezy_cur;
+  LOOP
+    FETCH id_imprezy_cur INTO curr_id_imprezy;
+    EXIT WHEN id_imprezy_cur%NOTFOUND;
+
+    SELECT DATA_IMPREZY INTO data_i FROM IMPREZY WHERE ID_IMPREZY = curr_id_imprezy;
     IF data_i - 7 > SYSDATE THEN
       r_per_i := rezerwacje_per_impreza;
-      FOR j IN 1..ID_KLIENTA_seq.currval LOOP
-        IF r_per_i > 0 THEN
-          k_exst := REZERWUJ(round(dbms_random.value(1, 10),0), j, i, round(dbms_random.value(1, ID_SEKTORU_seq.currval),0), SYSDATE - dbms_random.value(0, 30));
-          IF k_exst > 0 THEN
-            r_per_i := r_per_i - 1;
-          END IF;
-        ELSE
-          EXIT;
+
+      OPEN id_klienta_cur;
+      LOOP
+        FETCH id_klienta_cur INTO curr_id_klienta;
+        EXIT WHEN id_klienta_cur%NOTFOUND;
+
+        EXIT WHEN r_per_i <= 0;
+        k_exst := REZERWUJ(round(dbms_random.value(1, 10)), curr_id_klienta, curr_id_imprezy, round(dbms_random.value(1, 12)), SYSDATE - dbms_random.value(0, 30));
+        IF k_exst > 0 THEN
+          r_per_i := r_per_i - 1;
         END IF;
       END LOOP;
+      CLOSE id_klienta_cur;
     END IF;
   END LOOP;
+  CLOSE id_imprezy_cur;
 
 	DBMS_OUTPUT.put_line('Stworzono recerwacje.');
-  COMMIT;
+COMMIT;
 END;
 /
 
-create or replace FUNCTION zakup (biletow NUMBER, curr_id_klienta NUMBER, curr_id_imprezy NUMBER, curr_id_sektora NUMBER, curr_id_promocji NUMBER DEFAULT 0, curr_data_zakupu DATE DEFAULT (DATE'2000-01-01'))
+create or replace FUNCTION zakup_z_rezerwacji (curr_id_rezerwacji NUMBER, curr_id_promocji NUMBER DEFAULT 0)
 RETURN NUMBER IS
-  k_exst NUMBER;
-  m_exst NUMBER;
-  b_exst NUMBER;
-  curr_id_stadionu NUMBER;
-  rzedow NUMBER;
-  miejsc NUMBER;
-  curr_date DATE;
-  data_i DATE;
-  biletow_count NUMBER;
+  r_exst NUMBER;
+  id_k NUMBER;
+  p_exst NUMBER;
   cena_wyj NUMBER(20,2);
   rabat_wej NUMBER;
-
+  count_b NUMBER;
 BEGIN
-  SELECT DISTINCT ID_STADIONU INTO curr_id_stadionu FROM IMPREZY WHERE ID_IMPREZY = curr_id_imprezy;
-
-  /*Sprawdzam czy ilosc biletow jest z zakresu (1,10)*/
-  IF biletow < 1 OR biletow > 10 THEN
-    RETURN -5;
-  END IF;
-
-  IF curr_data_zakupu = (DATE'2000-01-01') THEN
-    curr_date := SYSDATE;
-  ELSE
-    curr_date := curr_data_zakupu;
-  END IF;
-
   /*Sprawdzam czy da się kupić bilety - impreza wydarzy się przed data zakupu*/
-  SELECT DATA_IMPREZY INTO data_i FROM IMPREZY WHERE ID_IMPREZY = curr_id_imprezy;
-  IF data_i < curr_date THEN
-    RETURN -4;
-  END IF;
+  /*dopisac....*/
 
-  /*Sprawdzam czy klient curr_id_klienta ma juz rezerwacje na impreze curr_id_imprezy: k_exst=0 - nie ma, k_exst>0 - ma*/
-  SELECT count(*) INTO k_exst FROM REZERWACJE R JOIN BILETY B ON R.ID_REZERWACJI = B.ID_REZERWACJI WHERE ID_KLIENTA = curr_id_klienta AND ID_IMPREZY = curr_id_imprezy;
-  IF k_exst > 0 THEN
-    /*DBMS_OUTPUT.put_line('Klien: ' || curr_id_klienta || ' ma juz rezerwacje');*/
-    RETURN -2;
-  END IF;
-
-  /*Sprawdzam czy klient curr_id_klienta ma juz kupione bilety na impreze curr_id_imprezy: k_exst=0 - nie ma, k_exst>0 - ma*/
-  SELECT count(*) INTO k_exst FROM ZAKUPY Z JOIN BILETY B ON Z.ID_ZAKUPU = B.ID_ZAKUPU WHERE ID_KLIENTA = curr_id_klienta AND ID_IMPREZY = curr_id_imprezy;
-  IF k_exst > 0 THEN
-    /*DBMS_OUTPUT.put_line('Klien: ' || curr_id_klienta || ' ma juz kupione bilety');*/
-    RETURN -3;
-  END IF;
-
-  /*Sprawdzam czy jest wystarczajaca liczba miejsc w danym sektorze: m_exst - b_exst >= biletow - jest*/
-  SELECT count(*) INTO m_exst FROM MIEJSCA WHERE ID_SEKTORA = curr_id_sektora AND ID_STADIONU = curr_id_stadionu;
-  SELECT count(*) INTO b_exst FROM BILETY WHERE ID_SEKTORA = curr_id_sektora AND ID_STADIONU = curr_id_stadionu AND ID_IMPREZY = curr_id_imprezy;
-  IF m_exst - b_exst < biletow THEN
-    /*DBMS_OUTPUT.put_line('miejsc: ' || m_exst || ' biletow: ' || b_exst);*/
+  /*Sprawdzam czy curr_id_rezerwacji istnieje*/
+  SELECT count(*) INTO r_exst FROM REZERWACJE WHERE ID_REZERWACJI = curr_id_rezerwacji;
+  IF r_exst = 0 THEN
     RETURN -1;
   END IF;
 
-  SELECT SUM(CENA) INTO cena_wyj FROM CENY WHERE ID_IMPREZY = curr_id_imprezy AND ID_TYPU_SEKTORA = (SELECT DISTINCT ID_TYPU_SEKTORA FROM SEKTORY WHERE ID_SEKTORA = curr_id_sektora);
+  /*Sprawdzam czy bilety z rezerwacji zostaly juz kupione*/
+  SELECT count(*) INTO r_exst FROM BILETY WHERE ID_REZERWACJI = curr_id_rezerwacji AND ID_ZAKUPU IS NOT NULL;
+  IF r_exst > 0 THEN
+    RETURN -2;
+  END IF;
 
-  IF curr_id_promocji = 0 THEN
+  SELECT ID_KLIENTA INTO id_k FROM REZERWACJE WHERE ID_REZERWACJI = curr_id_rezerwacji;
+
+  /*Sprawdzam czy Klinet posiada dana promocje*/
+  IF curr_id_promocji > 0 THEN
+    SELECT count(*) INTO p_exst FROM KLIENCI K JOIN PROMOCJE P ON K.ID_TYPU_KLIENTA = P.ID_TYPU_KLIENTA WHERE ID_KLIENTA = id_k AND ID_PROMOCJI = curr_id_promocji;
+    IF p_exst = 0 THEN
+      RETURN -3;
+    END IF;
+  END IF;
+
+
+  SELECT CENA INTO cena_wyj FROM CENY WHERE
+    ID_IMPREZY = (SELECT  DISTINCT B.ID_IMPREZY FROM BILETY B WHERE ID_REZERWACJI = curr_id_rezerwacji) AND
+    ID_TYPU_SEKTORA = (SELECT DISTINCT S.ID_TYPU_SEKTORA FROM SEKTORY S WHERE ID_SEKTORA = (SELECT  DISTINCT B.ID_SEKTORA FROM BILETY B WHERE ID_REZERWACJI = curr_id_rezerwacji));
+
+  SELECT count(*) INTO count_b FROM BILETY WHERE ID_REZERWACJI = curr_id_rezerwacji;
+  cena_wyj := cena_wyj * count_b;
+
+  IF curr_id_promocji <= 0 THEN
     INSERT INTO ZAKUPY (DATA_ZAKUPU, CENA, ID_KLIENTA)
-      VALUES (curr_date, cena_wyj, curr_id_klienta);
+      VALUES (SYSDATE, cena_wyj, id_k);
   ELSE
     SELECT RABAT INTO rabat_wej FROM PROMOCJE WHERE ID_PROMOCJI = curr_id_promocji;
     IF rabat_wej > 0 THEN
@@ -707,40 +829,41 @@ BEGIN
       cena_wyj := round(cena_wyj,2);
     END IF;
     INSERT INTO ZAKUPY (DATA_ZAKUPU, CENA, ID_KLIENTA, ID_PROMOCJI)
-      VALUES (curr_date, cena_wyj, curr_id_klienta, curr_id_promocji);
+      VALUES (SYSDATE, cena_wyj, id_k, curr_id_promocji);
   END IF;
 
-  SELECT count(*) INTO rzedow FROM MIEJSCA B WHERE ID_STADIONU = curr_id_stadionu AND ID_SEKTORA = curr_id_sektora AND NR_MIEJSCA = 1;
-  SELECT count(*) INTO miejsc FROM MIEJSCA B WHERE ID_STADIONU = curr_id_stadionu AND ID_SEKTORA = curr_id_sektora AND RZAD = 1;
+  UPDATE BILETY SET ID_ZAKUPU = ID_ZAKUPU_seq.currval WHERE ID_REZERWACJI = curr_id_rezerwacji;
 
-  biletow_count := biletow;
-
-  FOR i IN 1..rzedow LOOP
-    FOR j IN 1..miejsc LOOP
-
-      IF biletow_count <= 0 THEN
-        EXIT;
-      END IF;
-
-      /*Sprawdzam czy miejsce zajete*/
-      SELECT count(*) INTO b_exst FROM BILETY WHERE ID_IMPREZY = curr_id_imprezy AND ID_SEKTORA = curr_id_sektora AND RZAD = i AND NR_MIEJSCA = j;
-      IF b_exst = 0 THEN
-        biletow_count := biletow_count -1;
-        INSERT INTO BILETY (ID_IMPREZY, ID_STADIONU, ID_SEKTORA, RZAD, NR_MIEJSCA, ID_ZAKUPU)
-          VALUES (curr_id_imprezy, curr_id_stadionu, curr_id_sektora, i, j, ID_ZAKUPU_seq.currval);
-      END IF;
-    END LOOP;
-  END LOOP;
+  DELETE FROM REZERWACJE WHERE ID_REZERWACJI = curr_id_rezerwacji;
 
   COMMIT;
-	DBMS_OUTPUT.put_line('Stworzono zakup: ' || ID_ZAKUPU_seq.currval);
+	DBMS_OUTPUT.put_line('Stworzono zakup z rezerwacji: ' || ID_ZAKUPU_seq.currval);
   RETURN ID_ZAKUPU_seq.currval;
 END;
 /
 
-create or replace FUNCTION zakup_z_rezerwacji (curr_id_rezerwacji NUMBER, curr_id_promocji NUMBER DEFAULT 0)
+create or replace FUNCTION zakup (biletow NUMBER, curr_id_klienta NUMBER, curr_id_imprezy NUMBER, curr_id_sektora NUMBER, curr_id_promocji NUMBER DEFAULT 0, curr_data_zakupu DATE DEFAULT (DATE'2000-01-01'))
 RETURN NUMBER IS
+  ret_rezerwuj NUMBER;
+  ret_zakup NUMBER;
 BEGIN
+  ret_rezerwuj := REZERWUJ(biletow, curr_id_klienta, curr_id_imprezy, curr_id_sektora, curr_data_zakupu - 7);
+
+  IF ret_rezerwuj <= 0 THEN
+    RETURN ret_rezerwuj;
+  END IF;
+
+  ret_zakup := ZAKUP_Z_REZERWACJI(ret_rezerwuj, curr_id_promocji);
+
+  IF ret_zakup <= 0 THEN
+    DELETE FROM REZERWACJE WHERE ID_REZERWACJI = ret_rezerwuj;
+    RETURN ret_zakup;
+  END IF;
+
+  IF curr_data_zakupu <= (DATE'2000-01-01') THEN
+    UPDATE ZAKUPY SET DATA_ZAKUPU = curr_data_zakupu WHERE ID_ZAKUPU = ret_zakup;
+  END IF;
+
   COMMIT;
 	DBMS_OUTPUT.put_line('Stworzono zakup: ' || ID_ZAKUPU_seq.currval);
   RETURN ID_ZAKUPU_seq.currval;
@@ -749,31 +872,50 @@ END;
 
 create or replace PROCEDURE stworz_zakupy (zakupy_per_impreza NUMBER)
 IS
+  CURSOR id_imprezy_cur IS
+    SELECT ID_IMPREZY
+    FROM IMPREZY;
+
+  curr_id_imprezy NUMBER;
+
+  CURSOR id_klienta_cur IS
+    SELECT ID_KLIENTA
+    FROM KLIENCI;
+
+  curr_id_klienta NUMBER;
+
   data_i DATE;
   k_exst NUMBER;
   r_per_i NUMBER;
   data_z DATE;
 BEGIN
 
-  FOR i IN 1..ID_IMPREZY_seq.currval LOOP
-    SELECT DATA_IMPREZY INTO data_i FROM IMPREZY WHERE ID_IMPREZY = i;
+  OPEN id_imprezy_cur;
+  LOOP
+    FETCH id_imprezy_cur INTO curr_id_imprezy;
+    EXIT WHEN id_imprezy_cur%NOTFOUND;
+
+    SELECT DATA_IMPREZY INTO data_i FROM IMPREZY WHERE ID_IMPREZY = curr_id_imprezy;
     IF data_i - 7 < SYSDATE THEN
       r_per_i := zakupy_per_impreza;
-      FOR j IN 1..ID_KLIENTA_seq.currval LOOP
-        IF r_per_i > 0 THEN
 
-          data_z := TO_DATE(TRUNC(DBMS_RANDOM.value(TO_CHAR(DATE '2013-01-01','J'),TO_CHAR(LEAST(SYSDATE,data_i), 'J'))),'J');
+      OPEN id_klienta_cur;
+      LOOP
+        FETCH id_klienta_cur INTO curr_id_klienta;
+        EXIT WHEN id_klienta_cur%NOTFOUND;
 
-          k_exst := ZAKUP(round(dbms_random.value(1, 10),0), j, i, round(dbms_random.value(1, ID_SEKTORU_seq.currval),0), 0, data_z);
-          IF k_exst > 0 THEN
-            r_per_i := r_per_i - 1;
-          END IF;
-        ELSE
-          EXIT;
+        EXIT WHEN r_per_i <= 0;
+
+        data_z := TO_DATE(TRUNC(DBMS_RANDOM.value(TO_CHAR(DATE '2013-01-01','J'),TO_CHAR(LEAST(SYSDATE,data_i), 'J'))),'J');
+        k_exst := ZAKUP(round(dbms_random.value(1, 10)), curr_id_klienta, curr_id_imprezy, round(dbms_random.value(1, 12)), 0, data_z);
+        IF k_exst > 0 THEN
+          r_per_i := r_per_i - 1;
         END IF;
       END LOOP;
+      CLOSE id_klienta_cur;
     END IF;
   END LOOP;
+  CLOSE id_imprezy_cur;
 
 	DBMS_OUTPUT.put_line('Stworzono zakupy.');
   COMMIT;
