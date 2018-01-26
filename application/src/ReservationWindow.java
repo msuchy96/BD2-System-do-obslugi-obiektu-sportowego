@@ -126,7 +126,7 @@ public class ReservationWindow {
                     else if (result == -5)
                         System.out.println("Failed to execute purchase function in database.");
                     else {
-                        double price = getPrice(connection, result);
+                        double price = PriceGetter.getPrice(connection, result);
                         System.out.println("Purchase id: " + result);
                         System.out.println("Price: " + price);
                     }
@@ -144,22 +144,6 @@ public class ReservationWindow {
         stage.setOnCloseRequest(we -> stage.close());
 
         stage.showAndWait();
-    }
-
-    private double getPrice(Connection connection, int result) {
-        Statement statement = null;
-        ResultSet rs = null;
-        String query = "SELECT CENA FROM ZAKUPY WHERE ID_ZAKUPU = " + result;
-        double price = 0;
-        try {
-            statement = connection.createStatement();
-            rs = statement.executeQuery(query);
-            rs.next();
-            price = rs.getDouble(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return price;
     }
 
     private int createReservation(Connection connection) {

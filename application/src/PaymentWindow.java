@@ -68,7 +68,13 @@ public class PaymentWindow {
                 rId = Integer.parseInt(reservationIdField.getText());
                 pId = Integer.parseInt(promotionIdField.getText());
                 int result = this.createPayment(connection);
-
+                if(result < 0)
+                    System.out.println("Something went wrong");
+                else {
+                    double price = PriceGetter.getPrice(connection, result);
+                    System.out.println("Purchase Id: " + result);
+                    System.out.println("Price: " + price);
+                }
                 stage.close();
             }
         });
@@ -87,8 +93,10 @@ public class PaymentWindow {
     private int createPayment(Connection connection) {
         CallableStatement callableStatement = null;
         try {
-            callableStatement = connection.prepareCall("{? = call zakup(?, ?, ?, ?)}");
+            callableStatement = connection.prepareCall("{? = call zakup_z_rezerwacji(?, ?)}");
             callableStatement.registerOutParameter(1, Types.NUMERIC);
+            callableStatement.setInt(rId, 2);
+            callableStatement.setInt(pId, 3);
         } catch (SQLException e) {
             callableStatement = null;
             e.printStackTrace();
