@@ -91,12 +91,12 @@ public class PaymentWindow {
     }
 
     private int createPayment(Connection connection) {
-        CallableStatement callableStatement = null;
+        CallableStatement callableStatement;
         try {
             callableStatement = connection.prepareCall("{? = call zakup_z_rezerwacji(?, ?)}");
             callableStatement.registerOutParameter(1, Types.NUMERIC);
-            callableStatement.setInt(rId, 2);
-            callableStatement.setInt(pId, 3);
+            callableStatement.setInt(2, rId);
+            callableStatement.setInt(3, pId);
         } catch (SQLException e) {
             callableStatement = null;
             e.printStackTrace();
