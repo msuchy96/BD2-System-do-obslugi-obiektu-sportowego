@@ -20,7 +20,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="data" id="6A5460AD-F8A0-4798-9DCB-AF821F00F45D">
+<Column name="data_rezerwacji" id="6A5460AD-F8A0-4798-9DCB-AF821F00F45D">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>CE669D4F-019E-EBCD-BD84-9A6AD4E07B34</generatorID>

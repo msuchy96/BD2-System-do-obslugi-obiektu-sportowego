@@ -1,8 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="9EF6E31F-15D8-ED9A-C3EE-BC9577FBBC10" name="V_KLIENCI">
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="9EF6E31F-15D8-ED9A-C3EE-BC9577FBBC10" name="VIEW_KLIENCI">
 <createdBy>zamoj</createdBy>
 <createdTime>2018-01-23 21:10:13 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
+<ordsAlias>v_klienci</ordsAlias>
 <userDefined>true</userDefined>
 <userDefinedSQL>SELECT&lt;br/&gt;    klienci.id_klienta,&lt;br/&gt;    klienci.nazwisko,&lt;br/&gt;    klienci.imie,&lt;br/&gt;    klienci.zdjecie,&lt;br/&gt;    klienci.telefon_kontaktowy,&lt;br/&gt;    klienci.id_typu_klienta&lt;br/&gt;FROM&lt;br/&gt;    klienci</userDefinedSQL>
 <layoutSQL>&lt;?xml version = &apos;1.0&apos; encoding = &apos;UTF-8&apos;?&gt;&lt;br&gt;&lt;ActiveQueryBuilderLayout&gt;&lt;SQL&gt;Select KLIENCI.id_klienta, KLIENCI.nazwisko, KLIENCI.imie, KLIENCI.zdjecie, KLIENCI.telefon_kontaktowy, KLIENCI.id_typu_klienta From KLIENCI&lt;/SQL&gt;&lt;SubQueries&gt;&lt;SubQuery SQL=&quot;Select KLIENCI.id_klienta, KLIENCI.nazwisko, KLIENCI.imie, KLIENCI.zdjecie, KLIENCI.telefon_kontaktowy, KLIENCI.id_typu_klienta From KLIENCI&quot;&gt;&lt;UnionSubQuery&gt;&lt;DataSource SQL=&quot;KLIENCI&quot; X=&quot;0&quot; Y=&quot;0&quot; Height=&quot;0&quot; Width=&quot;0&quot;/&gt;&lt;/UnionSubQuery&gt;&lt;/SubQuery&gt;&lt;/SubQueries&gt;&lt;/ActiveQueryBuilderLayout&gt;</layoutSQL>

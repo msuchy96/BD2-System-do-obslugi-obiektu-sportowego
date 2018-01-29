@@ -29,7 +29,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="data" id="CE669D4F-019E-EBCD-BD84-9A6AD4E07B34">
+<Attribute name="data_rezerwacji" id="CE669D4F-019E-EBCD-BD84-9A6AD4E07B34">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:38:19 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>
