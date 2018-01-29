@@ -46,7 +46,7 @@
 <colAssociation fkAssociation="F7C95CCD-03EC-3E7E-8B73-67F05224E848" referredColumn="675EE78A-338A-D1DF-72BB-3F606A38BD1A"/>
 </associations>
 </Column>
-<Column name="PROMOCJA_id_promocji" id="0281F70E-B286-5A8E-5A72-E8C5E81C7B8C">
+<Column name="id_promocji" id="0281F70E-B286-5A8E-5A72-E8C5E81C7B8C">
 <createdBy>koraxiss</createdBy>
 <createdTime>2018-01-10 12:17:30 UTC</createdTime>
 <ownerDesignName>models</ownerDesignName>

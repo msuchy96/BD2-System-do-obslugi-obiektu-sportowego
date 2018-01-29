@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="9EF6E31F-15D8-ED9A-C3EE-BC9577FBBC10" name="V_KLIENCI">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>SELECT&lt;br/&gt;    klienci.id_klienta,&lt;br/&gt;    klienci.nazwisko,&lt;br/&gt;    klienci.imie,&lt;br/&gt;    klienci.zdjecie,&lt;br/&gt;    klienci.telefon_kontaktowy,&lt;br/&gt;    klienci.id_typu_klienta&lt;br/&gt;FROM&lt;br/&gt;    klienci</userDefinedSQL>
+<layoutSQL>&lt;?xml version = &apos;1.0&apos; encoding = &apos;UTF-8&apos;?&gt;&lt;br&gt;&lt;ActiveQueryBuilderLayout&gt;&lt;SQL&gt;Select KLIENCI.id_klienta, KLIENCI.nazwisko, KLIENCI.imie, KLIENCI.zdjecie, KLIENCI.telefon_kontaktowy, KLIENCI.id_typu_klienta From KLIENCI&lt;/SQL&gt;&lt;SubQueries&gt;&lt;SubQuery SQL=&quot;Select KLIENCI.id_klienta, KLIENCI.nazwisko, KLIENCI.imie, KLIENCI.zdjecie, KLIENCI.telefon_kontaktowy, KLIENCI.id_typu_klienta From KLIENCI&quot;&gt;&lt;UnionSubQuery&gt;&lt;DataSource SQL=&quot;KLIENCI&quot; X=&quot;0&quot; Y=&quot;0&quot; Height=&quot;0&quot; Width=&quot;0&quot;/&gt;&lt;/UnionSubQuery&gt;&lt;/SubQuery&gt;&lt;/SubQueries&gt;&lt;/ActiveQueryBuilderLayout&gt;</layoutSQL>
+<parsed>true</parsed>
+<originalTableID>5E377223-A509-5A9C-08A9-445092A6151E</originalTableID>
+<usedContainers>
+<container containerID="5E377223-A509-5A9C-08A9-445092A6151E"/>
+</usedContainers>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="id_klienta" id="09FFF68B-DEF1-7BC1-AE95-C4AB9479F804">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>675EE78A-338A-D1DF-72BB-3F606A38BD1A</referencedColumn>
+<table>5E377223-A509-5A9C-08A9-445092A6151E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="nazwisko" id="610216A5-D0B2-9774-1E74-7B66169036DD">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<reference>false</reference>
+<referencedColumn>6A10677D-0464-1E69-D6AC-5A24B255F9B0</referencedColumn>
+<table>5E377223-A509-5A9C-08A9-445092A6151E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="imie" id="A54F3C91-2B38-07E5-B7BC-30F61333291B">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<reference>false</reference>
+<referencedColumn>6C1BF8A2-6C23-7E36-7505-0232E4665AAB</referencedColumn>
+<table>5E377223-A509-5A9C-08A9-445092A6151E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="zdjecie" id="9BC20D42-CD87-D218-C918-3145C70D2B43">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>BLOB</dataType>
+<reference>false</reference>
+<referencedColumn>A49201E2-AC39-6DC5-ACF9-8D7A5F97AC27</referencedColumn>
+<table>5E377223-A509-5A9C-08A9-445092A6151E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="telefon_kontaktowy" id="0F9F4884-FF0C-10B0-A4A8-02A42B07806F">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2 (16 CHAR)</dataType>
+<reference>false</reference>
+<referencedColumn>B7C8CCC0-56A6-6D26-6BD4-426F9A01756B</referencedColumn>
+<table>5E377223-A509-5A9C-08A9-445092A6151E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="id_typu_klienta" id="7594B4C0-6406-810A-DFB2-6A43082CA180">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>B83AE649-A787-48BF-19FF-E96BDC26EF2C</referencedColumn>
+<table>5E377223-A509-5A9C-08A9-445092A6151E</table>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5E377223-A509-5A9C-08A9-445092A6151E">
+<container>true</container>
+<tableName>KLIENCI</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="675EE78A-338A-D1DF-72BB-3F606A38BD1A">
+<columnName>id_klienta</columnName>
+<tableName>KLIENCI</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6A10677D-0464-1E69-D6AC-5A24B255F9B0">
+<columnName>nazwisko</columnName>
+<tableName>KLIENCI</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6C1BF8A2-6C23-7E36-7505-0232E4665AAB">
+<columnName>imie</columnName>
+<tableName>KLIENCI</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A49201E2-AC39-6DC5-ACF9-8D7A5F97AC27">
+<columnName>zdjecie</columnName>
+<tableName>KLIENCI</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B7C8CCC0-56A6-6D26-6BD4-426F9A01756B">
+<columnName>telefon_kontaktowy</columnName>
+<tableName>KLIENCI</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B83AE649-A787-48BF-19FF-E96BDC26EF2C">
+<columnName>id_typu_klienta</columnName>
+<tableName>KLIENCI</tableName>
+</UsedObject>
+</usedObjects>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.ViewIndex">
+<ind_PK_UK id="40D8A266-3172-94F3-592A-FF368AE54728" name="KLIENCI_PKv1">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 21:10:13 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="09FFF68B-DEF1-7BC1-AE95-C4AB9479F804"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</TableView>

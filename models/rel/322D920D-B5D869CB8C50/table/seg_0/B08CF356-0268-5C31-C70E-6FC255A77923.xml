@@ -28,8 +28,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30 CHAR</dataTypeSize>
-<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="cena" id="5EC32DE1-DC7F-7744-DB43-FE5F70F18DA3">
@@ -52,7 +52,7 @@
 <ownerDesignName>models</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT014</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -69,7 +69,7 @@
 <ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TYPY_SEKTOROW_id_typu" id="CE791C8C-0742-18D5-6D39-14782675B1EE">
+<Column name="id_typu_sektora" id="CE791C8C-0742-18D5-6D39-14782675B1EE">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>D63D47D4-86D4-1B3A-C422-C58C6CBC2F2C</generatorID>
@@ -84,7 +84,7 @@
 <colAssociation fkAssociation="71C8A7E3-95B8-5B58-9B8A-7B5250F5658F" referredColumn="AD943332-8705-AC13-D113-AE7F1AA1B724"/>
 </associations>
 </Column>
-<Column name="TYPY_IMPREZ_id_typu" id="EC373BB7-7EFD-86A2-D089-F7464F31D5CA">
+<Column name="id_typu_imprezy" id="EC373BB7-7EFD-86A2-D089-F7464F31D5CA">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>EBD380E6-2AF7-C152-4F66-66EDBCA82358</generatorID>

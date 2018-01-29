@@ -56,7 +56,7 @@
 <ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TYPY_KLIENTOW_id_typu" id="D9E92A31-F52C-B1E1-78D7-76B2EF92F126">
+<Column name="id_typu_klienta" id="D9E92A31-F52C-B1E1-78D7-76B2EF92F126">
 <createdBy>koraxiss</createdBy>
 <createdTime>2018-01-10 11:54:38 UTC</createdTime>
 <generatorID>74F7CB4C-6CF0-49DA-907B-4CB7D3DB8D3E</generatorID>

@@ -17,9 +17,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>20</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,20,2</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="data_wystawienia" id="E0F896C6-7578-9B66-4C79-037683F50581">
@@ -52,11 +50,12 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="KLIENCI_id_klienta" id="52329753-2074-1BF7-B84B-739DEA032C64">
+<Column name="id_klienta" id="52329753-2074-1BF7-B84B-739DEA032C64">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 11:59:33 UTC</createdTime>
 <generatorID>9BB06BFC-B86C-CAF6-2FE9-C147654DA82A</generatorID>
@@ -83,7 +82,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TYPY_KARNETOW_id_typu" id="1007BD4B-9A4A-46B9-94B9-0421BB9F3ED4">
+<Column name="id_typu_karnetu" id="1007BD4B-9A4A-46B9-94B9-0421BB9F3ED4">
 <createdBy>koraxiss</createdBy>
 <createdTime>2017-12-22 15:11:35 UTC</createdTime>
 <generatorID>1574BF4B-6CB2-2EA7-AD7B-D75C2FFC6603</generatorID>

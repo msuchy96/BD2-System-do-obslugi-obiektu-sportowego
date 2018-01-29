@@ -43,6 +43,18 @@
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="rabat" id="5DF4F66C-E602-9C62-4BE3-963C46F6BB7D">
+<createdBy>zamoj</createdBy>
+<createdTime>2018-01-23 20:30:53 UTC</createdTime>
+<ownerDesignName>models</ownerDesignName>
+<engineerTo>
+<item key="322D920D-BC6D-A258-9088-B5D869CB8C50" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="opis" id="F6BCDBEB-8F73-CFF8-A41C-2E9B5B47DF35">
 <createdBy>zamoj</createdBy>
 <createdTime>2017-12-21 21:46:38 UTC</createdTime>
